@@ -1,0 +1,9 @@
+parameters:
+    armd.content.log.admin.class: SIP\ResourceBundle\Admin\ContentLogAdmin
+
+services:
+    armd.content.log.admin:
+        class: %armd.content.log.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: log, label: ContentLog }
+        arguments: [null, SIP\ResourceBundle\Entity\ContentLog, SonataAdminBundle:CRUD]

@@ -1,0 +1,27 @@
+fos_user:
+    db_driver:      orm
+    firewall_name:  main
+    user_class:     SIP\UserBundle\Entity\User
+
+    group:
+        group_class:  SIP\UserBundle\Entity\Group
+
+    profile:  # Authentication Form
+        form:
+            type:               fos_user_profile
+            name:               fos_user_profile_form
+            validation_groups:  [Authentication] # Please note : this is not the default value
+
+sonata_user:
+    security_acl: true
+    impersonating_route: sonata_user_impersonating
+    class:
+        user:   SIP\UserBundle\Entity\User
+        group:  SIP\UserBundle\Entity\Group
+
+    profile:  # Profile Form (firstname, lastname, etc ...)
+        form:
+            type:               sonata_user_profile
+            handler:            sonata.user.profile.form.handler.default
+            name:               sonata_user_profile_form
+            validation_groups:  [Profile]

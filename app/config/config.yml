@@ -1,6 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: resources/sonata.yml }
+    - { resource: resources/user.yml }
 
 framework:
     #esi:             ~
@@ -54,6 +56,10 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
@@ -61,3 +67,11 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+            sortable: true
+            loggable: true
+
