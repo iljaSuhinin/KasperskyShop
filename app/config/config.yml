@@ -51,14 +51,13 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: %kernel.root_dir%/data/data.db3
         # path:     %database_path%
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
-
-    dbal:
-        types:
-            json: Sonata\Doctrine\Types\JsonType
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -74,4 +73,3 @@ stof_doctrine_extensions:
             sluggable: true
             sortable: true
             loggable: true
-
