@@ -14,6 +14,22 @@ use Sonata\AdminBundle\Admin\Admin;
 class ContentLogAdmin extends Admin
 {
     /**
+     * @var \Sonata\AdminBundle\Admin\Pool
+     */
+    protected $adminPoll;
+
+    /**
+     * @param string $code
+     * @param string $class
+     * @param string $baseControllerName
+     */
+    public function __construct($code, $class, $baseControllerName, \Sonata\AdminBundle\Admin\Pool $adminPoll)
+    {
+        parent::__construct($code, $class, $baseControllerName);
+        $this->adminPoll = $adminPoll;
+    }
+
+    /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
      *
      * @return void
@@ -47,7 +63,7 @@ class ContentLogAdmin extends Admin
                 'view' => array(),
                 'edit' => array(),
                 'delete' => array(),
-                'url' => array())
+                'url' => array('template' => 'SIPResourceBundle:Admin:list__action_url.html.twig'))
         ));
     }
 
@@ -105,5 +121,14 @@ class ContentLogAdmin extends Admin
             }
         }
         return $outData;
+    }
+
+    /**
+     * @param string $entityClass
+     * @return \Sonata\AdminBundle\Admin\Admin
+     */
+    public function getAdminClass($entityClass)
+    {
+        return $this->adminPoll->getAdminByClass($entityClass);
     }
 }

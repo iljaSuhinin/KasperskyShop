@@ -13,7 +13,7 @@ sonata_user:
 
 SIPUserBundle:
     resource: '@SIPUserBundle/Resources/config/routing/routing.yml'
-    prefix:   /
+    prefix:   /admin
 
 SIPResourceBundle:
     resource: "@SIPResourceBundle/Resources/config/routing.yml"
