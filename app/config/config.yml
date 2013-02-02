@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: resources/sonata.yml }
     - { resource: resources/user.yml }
+    - { resource: resources/sylius.yml }
 
 framework:
     esi:             ~
@@ -29,7 +30,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ SIPResourceBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

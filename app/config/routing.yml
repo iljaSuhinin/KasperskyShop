@@ -16,5 +16,9 @@ SIPUserBundle:
     prefix:   /admin
 
 SIPResourceBundle:
-    resource: "@SIPResourceBundle/Resources/config/routing.yml"
+    resource: '@SIPResourceBundle/Resources/config/routing/routing.yml'
     prefix:   /
+
+sylius_cart:
+    resource: @SyliusCartBundle/Resources/config/routing.yml
+    prefix: /cart

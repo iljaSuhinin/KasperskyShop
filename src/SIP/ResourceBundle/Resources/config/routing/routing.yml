@@ -1,0 +1,3 @@
+sip_resource_core_main:
+    pattern: /
+    defaults: { _controller: SIPResourceBundle:Main:index }

@@ -1,0 +1,8 @@
+sylius_cart:
+    driver: doctrine/orm
+    resolver: sip.cart_item_resolver
+    classes:
+        cart:
+            model: SIP\ResourceBundle\Entity\Cart
+        item:
+            model: SIP\ResourceBundle\Entity\CartItem
