@@ -4,6 +4,7 @@ imports:
     - { resource: resources/sonata.yml }
     - { resource: resources/user.yml }
     - { resource: resources/sylius.yml }
+    - { resource: resources/media.yml }
 
 framework:
     esi:             ~

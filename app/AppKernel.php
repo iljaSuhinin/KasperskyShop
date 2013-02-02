@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\MediaBundle\SonataMediaBundle(),
 
             new SIP\UserBundle\SIPUserBundle(),
             new SIP\ResourceBundle\SIPResourceBundle(),
