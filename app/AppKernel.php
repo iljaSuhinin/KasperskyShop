@@ -46,6 +46,7 @@ class AppKernel extends Kernel
 
             new SIP\UserBundle\SIPUserBundle(),
             new SIP\ResourceBundle\SIPResourceBundle(),
+            new SIP\TextBundle\SIPTextBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

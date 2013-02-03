@@ -5,7 +5,7 @@ services:
     sip.content.log.admin:
         class: %sip.content.log.admin.class%
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: log, label: ContentLog }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Log, label: ContentLog }
         arguments: [null, SIP\ResourceBundle\Entity\ContentLog, SonataAdminBundle:CRUD, @sonata.admin.pool]
 
     sip.content.cart.admin:

@@ -1,0 +1,3 @@
+sip_text_item:
+    pattern:  /{slug}
+    defaults: { _controller: SIPTextBundle:Text:index }
