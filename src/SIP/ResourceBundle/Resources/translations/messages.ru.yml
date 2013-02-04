@@ -16,3 +16,21 @@ Cart Item List: Список товаров в корзине
 
 media: Медиа материалы
 gallery: Медиа галлерея
+
+Product: Товары
+Product List: Список товаров
+Product Edit: Редактирование товара
+Product Show: Просмотр товаров
+
+Name: Название
+Created At: Создан
+Updated At: Обновлен
+Image: Изображение
+
+Variant: Вариант
+Variant Create: Создание варианта
+Variant Edit: Редактирование варианта
+Variant List: Список вариантов
+
+Presentation: Описание
+Price: Цена

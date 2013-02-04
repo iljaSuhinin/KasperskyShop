@@ -6,3 +6,12 @@ sylius_cart:
             model: SIP\ResourceBundle\Entity\Cart
         item:
             model: SIP\ResourceBundle\Entity\CartItem
+
+sylius_assortment:
+    driver: doctrine/orm
+    classes:
+        product:
+            model: SIP\ResourceBundle\Entity\Assortment\Product
+            controller: SIP\ResourceBundle\Controller\ProductController
+        variant:
+            model: SIP\ResourceBundle\Entity\Assortment\Variant

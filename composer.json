@@ -29,8 +29,10 @@
         "sonata-project/user-bundle": "master-dev",
         "sonata-project/doctrine-orm-admin-bundle": "master-dev",
         "sonata-project/intl-bundle": "master-dev",
+        "sonata-project/media-bundle": "dev-master",
+
         "sylius/cart-bundle": "*",
-        "sonata-project/media-bundle": "dev-master"
+        "sylius/assortment-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

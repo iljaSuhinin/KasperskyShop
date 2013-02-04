@@ -6,7 +6,10 @@ namespace SIP\ResourceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
+use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 use Sylius\Bundle\CartBundle\Entity\CartItem as BaseCartItem;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -22,6 +25,15 @@ class CartItem extends BaseCartItem
     protected $id;
 
     /**
+     * Variant.
+     *
+     * @Assert\NotBlank(groups={"CheckVariant"})
+     * @ORM\ManyToOne(targetEntity="Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface")
+     * @ORM\JoinColumn(name="variant_id", referencedColumnName="id", nullable=false)
+     */
+    protected $variant;
+
+    /**
      * Get id
      *
      * @return integer
@@ -29,5 +41,35 @@ class CartItem extends BaseCartItem
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get associated variant.
+     *
+     * @return VariantInterface
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+
+    /**
+     * Set associated variant.
+     *
+     * @param VariantInterface $variant
+     */
+    public function setVariant(VariantInterface $variant)
+    {
+        $this->variant = $variant;
+
+        $this->setUnitPrice($variant->getPrice());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function equals(CartItemInterface $item)
+    {
+        return $this->getVariant()->getId() === $item->getVariant()->getId();
     }
 }

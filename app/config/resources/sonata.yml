@@ -17,6 +17,8 @@ sonata_admin:
         blocks:
             # display a dashboard block
             - { position: left, type: sonata.admin.block.admin_list }
+    templates:
+        edit:    SIPResourceBundle:Admin:edit.html.twig
 
 sonata_block:
     default_contexts: [cms]

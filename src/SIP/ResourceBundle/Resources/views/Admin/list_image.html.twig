@@ -1,0 +1,7 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field%}
+    {% if object.image is defined  %}
+        {% thumbnail object.image, 'admin' with {'width': 75, 'height': 60} %}
+    {% endif %}
+{% endblock %}

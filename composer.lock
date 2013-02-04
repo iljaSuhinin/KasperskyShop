@@ -1,5 +1,5 @@
 {
-    "hash": "b2f234d2b23cf007d889bb43198194f8",
+    "hash": "a0169b7202aeaa5b369a5af7385e3fbb",
     "packages": [
         {
             "name": "doctrine/common",
@@ -437,12 +437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle",
-                "reference": "73ffa93625bced951c849a84ef0e3eb7dba76390"
+                "reference": "c61be053eca032bd19c8a6a7a60d14bbb9d4eaaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/73ffa93625bced951c849a84ef0e3eb7dba76390.zip",
-                "reference": "73ffa93625bced951c849a84ef0e3eb7dba76390",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/c61be053eca032bd19c8a6a7a60d14bbb9d4eaaf",
+                "reference": "c61be053eca032bd19c8a6a7a60d14bbb9d4eaaf",
                 "shasum": ""
             },
             "require": {
@@ -465,7 +465,7 @@
                 "sensio/framework-extra-bundle": "Add support for route annotations and the view response listener",
                 "symfony/serializer": "Add support for basic serialization capabilities, requires >=2.0,<2.3-dev"
             },
-            "time": "2013-01-23 08:15:20",
+            "time": "2013-02-02 23:16:22",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1010,12 +1010,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle",
-                "reference": "0ade45f307071396bb63830ff51c0da979cebb58"
+                "reference": "bc55c27e2f89f70f9f32b8a7c6443bc8f726f593"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/0ade45f307071396bb63830ff51c0da979cebb58",
-                "reference": "0ade45f307071396bb63830ff51c0da979cebb58",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/bc55c27e2f89f70f9f32b8a7c6443bc8f726f593",
+                "reference": "bc55c27e2f89f70f9f32b8a7c6443bc8f726f593",
                 "shasum": ""
             },
             "require": {
@@ -1040,7 +1040,7 @@
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
-            "time": "2013-02-02 16:30:34",
+            "time": "2013-02-02 23:30:58",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2739,6 +2739,71 @@
             "keywords": [
                 "mail",
                 "mailer"
+            ]
+        },
+        {
+            "name": "sylius/assortment-bundle",
+            "version": "dev-master",
+            "target-dir": "Sylius/Bundle/AssortmentBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sylius/SyliusAssortmentBundle.git",
+                "reference": "6b5c7680206f42c09bdb2f06a96e67cc329164a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Sylius/SyliusAssortmentBundle/archive/6b5c7680206f42c09bdb2f06a96e67cc329164a0.zip",
+                "reference": "6b5c7680206f42c09bdb2f06a96e67cc329164a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "stof/doctrine-extensions-bundle": "1.1.*",
+                "sylius/resource-bundle": "0.1.*",
+                "symfony/framework-bundle": ">=2.1,<3.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec2": "dev-develop",
+                "symfony/form": ">=2.1,<3.0",
+                "symfony/validator": ">=2.1,<3.0"
+            },
+            "suggest": {
+                "friendsofsymfony/rest-bundle": "*"
+            },
+            "time": "2013-01-29 00:04:32",
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sylius\\Bundle\\AssortmentBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paweł Jędrzejewski",
+                    "email": "pjedrzejewski@diweb.pl",
+                    "homepage": "http://pjedrzejewski.com"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/Sylius/SyliusAssortmentBundle/contributors"
+                }
+            ],
+            "description": "Manage products, their variants, properties and options in your Symfony2 application.",
+            "homepage": "http://sylius.org",
+            "keywords": [
+                "ecommerce",
+                "product",
+                "products",
+                "shop"
             ]
         },
         {

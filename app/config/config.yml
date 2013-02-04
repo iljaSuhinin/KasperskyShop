@@ -75,3 +75,6 @@ stof_doctrine_extensions:
             sluggable: true
             sortable: true
             loggable: true
+
+genemu_form:
+    select2: ~

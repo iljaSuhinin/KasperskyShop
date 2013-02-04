@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="Assortment">
+                <source>Assortment</source>
+                <target>Каталог</target>
+            </trans-unit>
+            <trans-unit id="Log">
+                <source>Log</source>
+                <target>Журнал</target>
+            </trans-unit>
+            <trans-unit id="Cart">
+                <source>Cart</source>
+                <target>Корзина</target>
+            </trans-unit>
+            <trans-unit id="Content">
+                <source>Content</source>
+                <target>Контент</target>
+            </trans-unit>
+            <trans-unit id="label_per_page">
+                <source>label_per_page</source>
+                <target>Элементов на странице</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

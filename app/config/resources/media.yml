@@ -10,6 +10,7 @@ sonata_media:
                 - sonata.media.provider.file
 
             formats:
+                admin: { width: 75 , height: 60, , quality: 70}
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
 
@@ -18,6 +19,7 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
+                admin: { width: 75 , height: 60, , quality: 70}
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
 

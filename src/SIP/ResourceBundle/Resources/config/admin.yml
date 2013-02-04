@@ -19,3 +19,21 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: Cart, label: CartItem }
         arguments: [null, SIP\ResourceBundle\Entity\CartItem, SonataAdminBundle:CRUD]
+
+    sip.assortment.product.admin:
+        class: SIP\ResourceBundle\Admin\Assortment\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Product }
+        arguments: [null, SIP\ResourceBundle\Entity\Assortment\Product, SonataAdminBundle:CRUD]
+
+    sip.assortment.variant.admin:
+        class: SIP\ResourceBundle\Admin\Assortment\VariantAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Variant }
+        arguments: [null, SIP\ResourceBundle\Entity\Assortment\Variant, SonataAdminBundle:CRUD]
+
+    sip.assortment.property.admin:
+        class: SIP\ResourceBundle\Admin\Assortment\PropertyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Property }
+        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Property\Property, SonataAdminBundle:CRUD]

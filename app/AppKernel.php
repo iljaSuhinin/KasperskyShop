@@ -10,6 +10,7 @@ class AppKernel extends Kernel
         $bundles = array(
             new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
             new Sylius\Bundle\CartBundle\SyliusCartBundle(),
+            new Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
 
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),

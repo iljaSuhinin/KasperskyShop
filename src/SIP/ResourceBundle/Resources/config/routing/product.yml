@@ -1,0 +1,13 @@
+sip_resource_product_list:
+    pattern: /
+    defaults:
+        _controller: sylius_assortment.controller.product:indexAction
+        _template: SIPResourceBundle:Product:list.html.twig
+        _paginate: 9
+
+sip_resource_product_show:
+    pattern: /{slug}
+    defaults:
+        _controller: sylius_assortment.controller.product:showAction
+        _template: SIPResourceBundle:Product:show.html.twig
+        _identifier: slug
