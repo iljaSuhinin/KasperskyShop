@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Admin\Admin;
 
-class VariantAdmin extends Admin
+class ValueAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -18,17 +18,8 @@ class VariantAdmin extends Admin
      */
     protected function configureShowField(ShowMapper $showMapper)
     {
-        $showMapper
-            ->add('price')
-            ->add('master')
-            ->add('presentation')
-            ->add('product')
-            ->add('options')
-            ->add('availableOn')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('deletedAt')
-        ;
+        $showMapper->add('value')
+                   ->add('option');
     }
 
     /**
@@ -39,14 +30,11 @@ class VariantAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
-            ->add('price')
-            ->add('master')
-            ->add('presentation')
-            ->add('createdAt')
-            ->add('updatedAt')
+            ->addIdentifier('is')
+            ->add('value')
+            ->add('option')
             ->add('_action', 'actions', array(
-                'actions' => array(
+            'actions' => array(
                 'view' => array(),
                 'edit' => array(),
                 'delete' => array(),
@@ -60,13 +48,9 @@ class VariantAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper
-            ->with('General')
-                ->add('presentation')
-                ->add('price')
-                ->add('master', null, array('required' => false))
-                ->add('product', 'genemu_jqueryselect2_entity',
-                    array('class' => 'SIP\ResourceBundle\Entity\Assortment\Product', 'property' => 'name'))
-            ->end();
+        $formMapper->add('value')
+                   ->add('option', 'genemu_jqueryselect2_entity',
+                        array('class' => 'Sylius\Bundle\AssortmentBundle\Entity\Option\DefaultOption',
+                              'property' => 'name'));
     }
 }

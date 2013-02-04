@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Admin\Admin;
 
-class VariantAdmin extends Admin
+class OptionAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -19,15 +19,11 @@ class VariantAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('price')
-            ->add('master')
+            ->add('name')
             ->add('presentation')
-            ->add('product')
-            ->add('options')
-            ->add('availableOn')
+            ->add('values')
             ->add('createdAt')
             ->add('updatedAt')
-            ->add('deletedAt')
         ;
     }
 
@@ -39,9 +35,7 @@ class VariantAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
-            ->add('price')
-            ->add('master')
+            ->addIdentifier('name')
             ->add('presentation')
             ->add('createdAt')
             ->add('updatedAt')
@@ -62,11 +56,11 @@ class VariantAdmin extends Admin
     {
         $formMapper
             ->with('General')
+                ->add('name')
                 ->add('presentation')
-                ->add('price')
-                ->add('master', null, array('required' => false))
-                ->add('product', 'genemu_jqueryselect2_entity',
-                    array('class' => 'SIP\ResourceBundle\Entity\Assortment\Product', 'property' => 'name'))
+                ->add('values', 'sonata_type_collection',
+                    array('cascade_validation' => true),
+                    array('edit' => 'inline', 'inline' => 'table'))
             ->end();
     }
 }
