@@ -57,8 +57,6 @@ class PropertyAdmin extends Admin
             ->with('General')
                 ->add('name')
                 ->add('presentation')
-                ->add('createdAt')
-                ->add('updatedAt')
             ->end();
     }
 }

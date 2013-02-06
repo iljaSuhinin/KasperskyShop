@@ -36,10 +36,10 @@ Presentation: Описание
 Price: Цена
 
 Option: Опции
-Default Option List: Опции
-Default Option Create: Создание опции
-Default Option Edit: Редактирование опции
-Default Option Show: Просмотр опции
+Option List: Опции
+Option Create: Создание опции
+Option Edit: Редактирование опции
+Option Show: Просмотр опции
 
 Values: Значения
 
@@ -48,3 +48,9 @@ Default Option Value List: Список зачений опции
 Default Option Value Create: Создание значения опции
 Default Option Value Edit: Редактирование значения опции
 Default Option Value Show: Просмотр значения опции
+
+Property: Характеристики
+Default Property List: Список характеристик
+Default Property Edit: Редактирование характеристики
+Default Property Create: Создание характеристики
+Default Property Show: Просмотр характеристики

@@ -4,6 +4,7 @@
  */
 namespace SIP\ResourceBundle\Admin\Assortment;
 
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -65,8 +66,15 @@ class VariantAdmin extends Admin
                 ->add('presentation')
                 ->add('price')
                 ->add('master', null, array('required' => false))
-                ->add('product', 'genemu_jqueryselect2_entity',
-                    array('class' => 'SIP\ResourceBundle\Entity\Assortment\Product', 'property' => 'name'))
             ->end();
+    }
+
+    /**
+     * @param \Sonata\AdminBundle\Route\RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection) {
+        parent::configureRoutes($collection);
+
+        $collection->remove('create');
     }
 }

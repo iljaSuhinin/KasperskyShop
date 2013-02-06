@@ -15,3 +15,5 @@ sylius_assortment:
             controller: SIP\ResourceBundle\Controller\ProductController
         variant:
             model: SIP\ResourceBundle\Entity\Assortment\Variant
+        option:
+            model: SIP\ResourceBundle\Entity\Assortment\Option

@@ -36,13 +36,13 @@ services:
         class: SIP\ResourceBundle\Admin\Assortment\PropertyAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Property }
-        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Property\Property, SonataAdminBundle:CRUD]
+        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Property\DefaultProperty, SonataAdminBundle:CRUD]
 
     sip.assortment.option.admin:
         class: SIP\ResourceBundle\Admin\Assortment\OptionAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Option }
-        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Option\DefaultOption, SonataAdminBundle:CRUD]
+        arguments: [null, SIP\ResourceBundle\Entity\Assortment\Option, SonataAdminBundle:CRUD]
 
     sip.assortment.value.admin:
         class: SIP\ResourceBundle\Admin\Assortment\ValueAdmin

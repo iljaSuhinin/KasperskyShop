@@ -23,7 +23,8 @@ class Product extends BaseProduct
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface", mappedBy="product", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface",
+     * mappedBy="product", orphanRemoval=true, cascade={"persist"})
      */
     protected $variants;
 

@@ -59,7 +59,7 @@ class OptionAdmin extends Admin
                 ->add('name')
                 ->add('presentation')
                 ->add('values', 'sonata_type_collection',
-                    array('cascade_validation' => true),
+                    array('cascade_validation' => true, 'by_reference' => false),
                     array('edit' => 'inline', 'inline' => 'table'))
             ->end();
     }

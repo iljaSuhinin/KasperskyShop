@@ -4,6 +4,7 @@
  */
 namespace SIP\ResourceBundle\Admin\Assortment;
 
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -30,7 +31,7 @@ class ValueAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('is')
+            ->addIdentifier('id')
             ->add('value')
             ->add('option')
             ->add('_action', 'actions', array(
@@ -48,9 +49,15 @@ class ValueAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('value')
-                   ->add('option', 'genemu_jqueryselect2_entity',
-                        array('class' => 'Sylius\Bundle\AssortmentBundle\Entity\Option\DefaultOption',
-                              'property' => 'name'));
+        $formMapper->add('value');
+    }
+
+    /**
+     * @param \Sonata\AdminBundle\Route\RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection) {
+        parent::configureRoutes($collection);
+
+        $collection->remove('create');
     }
 }
