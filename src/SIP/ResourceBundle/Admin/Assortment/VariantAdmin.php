@@ -68,13 +68,4 @@ class VariantAdmin extends Admin
                 ->add('master', null, array('required' => false))
             ->end();
     }
-
-    /**
-     * @param \Sonata\AdminBundle\Route\RouteCollection $collection
-     */
-    protected function configureRoutes(RouteCollection $collection) {
-        parent::configureRoutes($collection);
-
-        $collection->remove('create');
-    }
 }

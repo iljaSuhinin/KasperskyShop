@@ -51,13 +51,4 @@ class ValueAdmin extends Admin
     {
         $formMapper->add('value');
     }
-
-    /**
-     * @param \Sonata\AdminBundle\Route\RouteCollection $collection
-     */
-    protected function configureRoutes(RouteCollection $collection) {
-        parent::configureRoutes($collection);
-
-        $collection->remove('create');
-    }
 }
