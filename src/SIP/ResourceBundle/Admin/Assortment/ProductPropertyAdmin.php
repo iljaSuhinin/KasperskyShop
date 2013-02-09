@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Admin\Admin;
 
-class VariantAdmin extends Admin
+class ProductPropertyAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -19,17 +19,9 @@ class VariantAdmin extends Admin
      */
     protected function configureShowField(ShowMapper $showMapper)
     {
-        $showMapper
-            ->add('price')
-            ->add('master')
-            ->add('presentation')
-            ->add('product')
-            ->add('options')
-            ->add('availableOn')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('deletedAt')
-        ;
+        $showMapper->add('product')
+                   ->add('property')
+                   ->add('value');
     }
 
     /**
@@ -41,13 +33,11 @@ class VariantAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('price')
-            ->add('master')
-            ->add('presentation')
-            ->add('createdAt')
-            ->add('updatedAt')
+            ->add('product')
+            ->add('property')
+            ->add('value')
             ->add('_action', 'actions', array(
-                'actions' => array(
+            'actions' => array(
                 'view' => array(),
                 'edit' => array(),
                 'delete' => array(),
@@ -61,14 +51,7 @@ class VariantAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper
-            ->with('General')
-                ->add('presentation')
-                ->add('price')
-                ->add('product', 'genemu_jqueryselect2_entity',
-                    array('class' => 'SIP\ResourceBundle\Entity\Assortment\Product', 'property' => 'name'))
-                ->add('options', 'genemu_jqueryselect2_entity',
-                    array('class' => 'Sylius\Bundle\AssortmentBundle\Entity\Option\DefaultOptionValue', 'property' => 'name'))
-            ->end();
+        $formMapper->add('property')
+                   ->add('value');
     }
 }

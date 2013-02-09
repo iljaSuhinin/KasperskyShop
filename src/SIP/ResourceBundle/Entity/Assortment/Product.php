@@ -24,12 +24,13 @@ class Product extends BaseProduct
 
     /**
      * @ORM\OneToMany(targetEntity="Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface",
-     * mappedBy="product", orphanRemoval=true, cascade={"persist"})
+     * mappedBy="product", orphanRemoval=true, cascade={"persist", "remove"})
      */
     protected $variants;
 
     /**
-     * @ORM\OneToMany(targetEntity="Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface", mappedBy="product", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface",
+     * mappedBy="product", cascade={"persist", "remove"})
      */
     protected $properties;
 
@@ -38,6 +39,12 @@ class Product extends BaseProduct
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
      */
     protected $image;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->properties = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -70,6 +77,25 @@ class Product extends BaseProduct
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @param \Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface $propertie
+     * @return Product
+     */
+    public function addPropertie(\Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface $propertie)
+    {
+        $this->properties[] = $propertie;
+
+        return $this;
+    }
+
+    /**
+     * @param \Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface $propertie
+     */
+    public function removePropertie(\Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface $propertie)
+    {
+        $this->properties->removeElement($propertie);
     }
 
     /**

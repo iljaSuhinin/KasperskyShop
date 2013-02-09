@@ -17,3 +17,5 @@ sylius_assortment:
             model: SIP\ResourceBundle\Entity\Assortment\Variant
         option:
             model: SIP\ResourceBundle\Entity\Assortment\Option
+        property:
+            model: SIP\ResourceBundle\Entity\Assortment\Property

@@ -66,13 +66,12 @@ class ProductAdmin extends Admin
                 ->add('slug')
                 ->add('description')
                 ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'products')))
-                ->add('variants', 'sonata_type_collection',
-                    array('cascade_validation' => true, 'required' => false),
+                ->add('properties', 'sonata_type_collection',
+                    array('cascade_validation' => true, 'required' => false, 'by_reference' => false),
                     array('edit' => 'inline', 'inline' => 'table'))
-                /*->add('options', 'sonata_type_collection', array('cascade_validation' => true),
-                    array('edit' => 'inline', 'inline' => 'table'))
-                ->add('properties', 'sonata_type_collection', array('cascade_validation' => true),
-                    array('edit' => 'inline', 'inline' => 'table'))*/
+                ->add('options', 'genemu_jqueryselect2_entity',
+                    array('class' => 'SIP\ResourceBundle\Entity\Assortment\Option',
+                          'property' => 'name', 'multiple' => true))
             ->end();
     }
 }
