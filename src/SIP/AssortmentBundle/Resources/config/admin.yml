@@ -1,0 +1,48 @@
+parameters:
+    sip.assortment.product.admin.class: SIP\AssortmentBundle\Admin\ProductAdmin
+    sip.assortment.variant.admin.class: SIP\AssortmentBundle\Admin\VariantAdmin
+    sip.assortment.property.admin.class: SIP\AssortmentBundle\Admin\PropertyAdmin
+    sip.assortment.option.admin.class: SIP\AssortmentBundle\Admin\OptionAdmin
+    sip.assortment.value.admin.class: SIP\AssortmentBundle\Admin\ValueAdmin
+    sip.assortment.property_product.admin.class: SIP\AssortmentBundle\Admin\ProductPropertyAdmin
+
+services:
+    sip.assortment.product.admin:
+        class: %sip.assortment.product.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Product }
+        arguments: [null, %sylius.model.product.class%, SonataAdminBundle:CRUD]
+        calls:
+            - [ setContainer, [ @service_container ] ]
+
+    sip.assortment.variant.admin:
+        class: %sip.assortment.variant.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Variant }
+        arguments: [null, %sylius.model.variant.class%, SonataAdminBundle:CRUD]
+        calls:
+            - [ setContainer, [ @service_container ] ]
+
+    sip.assortment.property.admin:
+        class: %sip.assortment.property.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Property }
+        arguments: [null, %sylius.model.property.class%, SonataAdminBundle:CRUD]
+
+    sip.assortment.option.admin:
+        class: %sip.assortment.option.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Option }
+        arguments: [null, %sylius.model.option.class%, SonataAdminBundle:CRUD]
+
+    sip.assortment.value.admin:
+        class: %sip.assortment.value.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Value }
+        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Option\DefaultOptionValue, SonataAdminBundle:CRUD]
+
+    sip.assortment.property_product.admin:
+        class: %sip.assortment.property_product.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: ProductProperty }
+        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Property\DefaultProductProperty, SonataAdminBundle:CRUD]

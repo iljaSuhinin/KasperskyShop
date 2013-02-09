@@ -1,5 +1,7 @@
 parameters:
     sip.content.log.admin.class: SIP\ResourceBundle\Admin\ContentLogAdmin
+    sip.content.cart.admin.class: SIP\ResourceBundle\Admin\CartAdmin
+    sip.content.cart_item.admin.class: SIP\ResourceBundle\Admin\CartItemAdmin
 
 services:
     sip.content.log.admin:
@@ -9,49 +11,13 @@ services:
         arguments: [null, SIP\ResourceBundle\Entity\ContentLog, SonataAdminBundle:CRUD, @sonata.admin.pool]
 
     sip.content.cart.admin:
-        class: SIP\ResourceBundle\Admin\CartAdmin
+        class: %sip.content.cart.admin.class%
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: Cart, label: Cart }
-        arguments: [null, SIP\ResourceBundle\Entity\Cart, SonataAdminBundle:CRUD]
+        arguments: [null, %sylius_cart.model.cart.class%, SonataAdminBundle:CRUD]
 
     sip.content.cart_item.admin:
-        class: SIP\ResourceBundle\Admin\CartItemAdmin
+        class: %sip.content.cart_item.admin.class%
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: Cart, label: CartItem }
-        arguments: [null, SIP\ResourceBundle\Entity\CartItem, SonataAdminBundle:CRUD]
-
-    sip.assortment.product.admin:
-        class: SIP\ResourceBundle\Admin\Assortment\ProductAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Product }
-        arguments: [null, SIP\ResourceBundle\Entity\Assortment\Product, SonataAdminBundle:CRUD]
-
-    sip.assortment.variant.admin:
-        class: SIP\ResourceBundle\Admin\Assortment\VariantAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Variant }
-        arguments: [null, SIP\ResourceBundle\Entity\Assortment\Variant, SonataAdminBundle:CRUD]
-
-    sip.assortment.property.admin:
-        class: SIP\ResourceBundle\Admin\Assortment\PropertyAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Property }
-        arguments: [null, SIP\ResourceBundle\Entity\Assortment\Property, SonataAdminBundle:CRUD]
-
-    sip.assortment.option.admin:
-        class: SIP\ResourceBundle\Admin\Assortment\OptionAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Option }
-        arguments: [null, SIP\ResourceBundle\Entity\Assortment\Option, SonataAdminBundle:CRUD]
-
-    sip.assortment.value.admin:
-        class: SIP\ResourceBundle\Admin\Assortment\ValueAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Value }
-        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Option\DefaultOptionValue, SonataAdminBundle:CRUD]
-
-    sip.assortment.property_product.admin:
-        class: SIP\ResourceBundle\Admin\Assortment\ProductPropertyAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: ProductProperty }
-        arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Property\DefaultProductProperty, SonataAdminBundle:CRUD]
+        arguments: [null, %sylius_cart.model.item.class%, SonataAdminBundle:CRUD]

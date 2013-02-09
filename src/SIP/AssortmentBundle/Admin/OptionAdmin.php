@@ -2,14 +2,14 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\ResourceBundle\Admin\Assortment;
+namespace SIP\AssortmentBundle\Admin;
 
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Admin\Admin;
 
-class ProductAdmin extends Admin
+class OptionAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -20,15 +20,10 @@ class ProductAdmin extends Admin
     {
         $showMapper
             ->add('name')
-            ->add('slug')
-            ->add('description')
-            ->add('image')
-            ->add('variants')
-            ->add('options')
-            ->add('properties')
+            ->add('presentation')
+            ->add('values')
             ->add('createdAt')
             ->add('updatedAt')
-            ->add('deletedAt')
         ;
     }
 
@@ -41,10 +36,9 @@ class ProductAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('slug')
+            ->add('presentation')
             ->add('createdAt')
             ->add('updatedAt')
-            ->add('image', 'sonata_type_model', array('template'=>'SIPResourceBundle:Admin:list_image.html.twig'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                 'view' => array(),
@@ -63,15 +57,10 @@ class ProductAdmin extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
-                ->add('slug')
-                ->add('description')
-                ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'products')))
-                ->add('properties', 'sonata_type_collection',
-                    array('cascade_validation' => true, 'required' => false, 'by_reference' => false),
+                ->add('presentation')
+                ->add('values', 'sonata_type_collection',
+                    array('cascade_validation' => true, 'by_reference' => false),
                     array('edit' => 'inline', 'inline' => 'table'))
-                ->add('options', 'genemu_jqueryselect2_entity',
-                    array('class' => 'SIP\ResourceBundle\Entity\Assortment\Option',
-                          'property' => 'name', 'multiple' => true))
             ->end();
     }
 }

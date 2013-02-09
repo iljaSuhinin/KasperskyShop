@@ -34,3 +34,7 @@ media:
 SIPTextBundle:
     resource: '@SIPTextBundle/Resources/config/routing.yml'
     prefix:   /
+
+SIPAssortmentBundle:
+    resource: '@SIPAssortmentBundle/Resources/config/routing.yml'
+    prefix:   /

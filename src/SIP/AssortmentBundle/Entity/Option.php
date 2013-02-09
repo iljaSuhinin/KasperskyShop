@@ -2,7 +2,7 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\ResourceBundle\Entity\Assortment;
+namespace SIP\AssortmentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

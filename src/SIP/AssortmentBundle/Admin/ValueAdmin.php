@@ -2,7 +2,7 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\ResourceBundle\Admin\Assortment;
+namespace SIP\AssortmentBundle\Admin;
 
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Admin\Admin;
 
-class ProductPropertyAdmin extends Admin
+class ValueAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -19,9 +19,8 @@ class ProductPropertyAdmin extends Admin
      */
     protected function configureShowField(ShowMapper $showMapper)
     {
-        $showMapper->add('product')
-                   ->add('property')
-                   ->add('value');
+        $showMapper->add('value')
+                   ->add('option');
     }
 
     /**
@@ -33,9 +32,8 @@ class ProductPropertyAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('product')
-            ->add('property')
             ->add('value')
+            ->add('option')
             ->add('_action', 'actions', array(
             'actions' => array(
                 'view' => array(),
@@ -51,7 +49,6 @@ class ProductPropertyAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('property')
-                   ->add('value');
+        $formMapper->add('value');
     }
 }

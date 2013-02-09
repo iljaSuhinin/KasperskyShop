@@ -11,11 +11,11 @@ sylius_assortment:
     driver: doctrine/orm
     classes:
         product:
-            model: SIP\ResourceBundle\Entity\Assortment\Product
-            controller: SIP\ResourceBundle\Controller\ProductController
+            model: SIP\AssortmentBundle\Entity\Product
+            controller: SIP\AssortmentBundle\Controller\ProductController
         variant:
-            model: SIP\ResourceBundle\Entity\Assortment\Variant
+            model: SIP\AssortmentBundle\Entity\Variant
         option:
-            model: SIP\ResourceBundle\Entity\Assortment\Option
+            model: SIP\AssortmentBundle\Entity\Option
         property:
-            model: SIP\ResourceBundle\Entity\Assortment\Property
+            model: SIP\AssortmentBundle\Entity\Property

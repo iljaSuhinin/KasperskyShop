@@ -2,15 +2,14 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\ResourceBundle\Admin\Assortment;
+namespace SIP\AssortmentBundle\Admin;
 
-use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Admin\Admin;
+use SIP\ResourceBundle\Admin\ContainerAwareAdmin;
 
-class VariantAdmin extends Admin
+class ProductAdmin extends ContainerAwareAdmin
 {
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
@@ -20,12 +19,13 @@ class VariantAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('price')
-            ->add('master')
-            ->add('presentation')
-            ->add('product')
+            ->add('name')
+            ->add('slug')
+            ->add('description')
+            ->add('image')
+            ->add('variants')
             ->add('options')
-            ->add('availableOn')
+            ->add('properties')
             ->add('createdAt')
             ->add('updatedAt')
             ->add('deletedAt')
@@ -40,12 +40,11 @@ class VariantAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
-            ->add('price')
-            ->add('master')
-            ->add('presentation')
+            ->addIdentifier('name')
+            ->add('slug')
             ->add('createdAt')
             ->add('updatedAt')
+            ->add('image', 'sonata_type_model', array('template'=>'SIPResourceBundle:Admin:list_image.html.twig'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                 'view' => array(),
@@ -63,12 +62,16 @@ class VariantAdmin extends Admin
     {
         $formMapper
             ->with('General')
-                ->add('presentation')
-                ->add('price')
-                ->add('product', 'genemu_jqueryselect2_entity',
-                    array('class' => 'SIP\ResourceBundle\Entity\Assortment\Product', 'property' => 'name'))
+                ->add('name')
+                ->add('slug')
+                ->add('description')
+                ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'products')))
+                ->add('properties', 'sonata_type_collection',
+                    array('cascade_validation' => true, 'required' => false, 'by_reference' => false),
+                    array('edit' => 'inline', 'inline' => 'table'))
                 ->add('options', 'genemu_jqueryselect2_entity',
-                    array('class' => 'Sylius\Bundle\AssortmentBundle\Entity\Option\DefaultOptionValue', 'property' => 'name'))
+                    array('class' => $this->container->getParameter('sylius.model.option.class'),
+                          'property' => 'name', 'multiple' => true))
             ->end();
     }
 }
