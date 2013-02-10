@@ -1,7 +1,10 @@
 parameters:
-#    sip_assortment.example.class: SIP\AssortmentBundle\Example
+    sip_assortment.form.type.option_value.class: SIP\AssortmentBundle\Form\Type\OptionValueType
 
 services:
-#    sip_assortment.example:
-#        class: %sip_assortment.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    sip_assortment.form.type.option_value:
+        class: %sip_assortment.form.type.option_value.class%
+        tags:
+            - { name: form.type, alias: option_value }
+        calls:
+            - [ setDoctrine, [ @doctrine ] ]

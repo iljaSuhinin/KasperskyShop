@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * (c) Suhinin Ilja <iljasuhinin@gmail.com>
+ */
 namespace SIP\AssortmentBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
