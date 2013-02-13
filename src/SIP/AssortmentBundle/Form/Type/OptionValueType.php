@@ -13,16 +13,31 @@ use Symfony\Component\Form\FormView;
 class OptionValueType extends AbstractType
 {
     /**
-     * @var \Doctrine\Bundle\DoctrineBundle\Registry
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
-    protected $doctrine;
+    protected $container;
 
     /**
-     * @param \Doctrine\Bundle\DoctrineBundle\Registry $doctrine
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
      */
-    public function setDoctrine(\Doctrine\Bundle\DoctrineBundle\Registry $doctrine)
+    public function setContainer (\Symfony\Component\DependencyInjection\ContainerInterface $container) {
+        $this->container = $container;
+    }
+
+    /**
+     * @return \Doctrine\Bundle\DoctrineBundle\Registry
+     */
+    public function getDoctrine()
     {
-        $this->doctrine = $doctrine;
+        return $this->container->get('doctrine');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Request
+     */
+    public function getRequest()
+    {
+        return $this->container->get('request');
     }
 
     /**
@@ -31,36 +46,50 @@ class OptionValueType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $transformer = new ArrayToOptionCollectionTransformer($this->doctrine->getEntityManager());
+        $transformer = new ArrayToOptionCollectionTransformer($this->getDoctrine()->getEntityManager());
 
         $builder->addModelTransformer($transformer);
 
-        if (isset($options['object'])) {
-            /**
-             * @var \Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variant
-             */
-            if (($variant = $options['object']) && $variant->getProduct()) {
-                /**
-                 * @var \Sylius\Bundle\AssortmentBundle\Model\Option\OptionInterface $option
-                 */
-                foreach ($variant->getProduct()->getOptions() as $option) {
-                    $choices = array();
-                    $data = null;
-                    foreach ($option->getValues() as $value) {
-                        foreach ($variant->getOptions() as $variantOptionValue) {
-                            if ($variantOptionValue == $value) {
-                                $data = $variantOptionValue->getId();
-                            }
-                        }
+        if ($this->checkSession()) {
+            $product = $this->getDoctrine()->getEntityManager()
+                            ->getRepository('SIPAssortmentBundle:Product')
+                            ->find($this->getRequest()->getSession()->get('productId'));
 
-                        $choices[$value->getId()] = $value->getValue();
-                    }
-
-                    $builder->add("option_{$option->getId()}", 'genemu_jqueryselect2_choice',
-                        array('label' => $option->getName(), 'choices' => $choices, 'data' => $data));
+            foreach ($product->getOptions() as $option) {
+                $choices = array();
+                $data = null;
+                foreach ($option->getValues() as $value) {
+                    $choices[$value->getId()] = $value->getValue();
                 }
+
+                $builder->add("option_{$option->getId()}", 'genemu_jqueryselect2_choice',
+                    array('label' => $option->getName(), 'choices' => $choices));
             }
         }
+    }
+
+    /**
+     * @param \Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variant
+     * @return \Sylius\Bundle\AssortmentBundle\Model\ProductInterface
+     */
+    public function getProduct(\Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variant)
+    {
+        if ($this->checkSession()) {
+            return $this->getDoctrine()->getRepository('SIPAssortmentBundle:Product')
+                ->find($this->getRequest()->getSession()->get('productId'));
+        }
+
+        return $variant->getProduct();
+    }
+
+    /**
+     * @return bool
+     */
+    public function checkSession()
+    {
+        return $this->getRequest()->getSession()->has('productId') &&
+            $this->getRequest()->getSession()->get('productId') &&
+            $this->getRequest()->getMethod() == 'POST';
     }
 
     /**
@@ -68,15 +97,11 @@ class OptionValueType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $options = array('compound' => true);
-
-        $resolver->setRequired(array(
-            'object',
-        ));
-
-        $resolver->setAllowedTypes(array(
-            'object' => 'SIP\AssortmentBundle\Entity\Variant',
-        ));
+        if ($this->checkSession()) {
+            $options = array('compound' => true, 'attr' => array('class' => 'option_value_target-quiet'));
+        } else {
+            $options = array('compound' => false, 'attr' => array('class' => 'option_value_target'));
+        }
 
         $resolver->setDefaults($options);
     }

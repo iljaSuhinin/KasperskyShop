@@ -66,8 +66,10 @@ class VariantAdmin extends ContainerAwareAdmin
                 ->add('presentation')
                 ->add('price')
                 ->add('product', 'genemu_jqueryselect2_entity',
-                    array('class' => $this->container->getParameter('sylius.model.product.class'), 'property' => 'name'))
-                ->add('options', 'option_value', array('required' => false, 'object' => $this->getSubject()))
+                    array('class' => $this->container->getParameter('sylius.model.product.class'),
+                          'property' => 'name',
+                          'attr' => array('class' => 'option_value_product')))
+                ->add('options', 'option_value', array('required' => false))
             ->end();
     }
 }

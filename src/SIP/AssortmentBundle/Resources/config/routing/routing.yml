@@ -1,0 +1,3 @@
+sip_assortment_variant_option:
+    pattern:  /_sys/varion_option
+    defaults: { _controller: SIPAssortmentBundle:VariantAdmin:variantOption }

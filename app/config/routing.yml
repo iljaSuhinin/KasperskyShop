@@ -36,5 +36,5 @@ SIPTextBundle:
     prefix:   /
 
 SIPAssortmentBundle:
-    resource: '@SIPAssortmentBundle/Resources/config/routing.yml'
+    resource: '@SIPAssortmentBundle/Resources/config/routing/routing.yml'
     prefix:   /

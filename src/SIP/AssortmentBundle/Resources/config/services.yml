@@ -7,4 +7,4 @@ services:
         tags:
             - { name: form.type, alias: option_value }
         calls:
-            - [ setDoctrine, [ @doctrine ] ]
+            - [ setContainer, [ @service_container ] ]
