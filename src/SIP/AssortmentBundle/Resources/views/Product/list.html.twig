@@ -8,7 +8,7 @@
 </div>
 
 <ul class="breadcrumb">
-  <li><a href="{{ path('sip_resource_product_list') }}">Products</a></li>
+  <li><a href="{{ path('sip_assortment_product_list') }}">Products</a></li>
 </ul>
 
 {% if products|length > 0 %}
@@ -30,14 +30,14 @@
 
     {% for product in products %}
         {% if grid %}
-            {% include 'SIPResourceBundle:Product:_singleGrid.html.twig' %}
+            {% include 'SIPAssortmentBundle:Product:_singleGrid.html.twig' %}
 
             {% if loop.index % 3 == 0 and not loop.last %}
             </div>
             <div class="fluid-row">
             {% endif %}
         {% else %}
-            {% include 'SIPResourceBundle:Product:_single.html.twig' %}
+            {% include 'SIPAssortmentBundle:Product:_single.html.twig' %}
         {% endif %}
     {% endfor %}
 

@@ -19,4 +19,12 @@ class SIPAssortmentBundle extends Bundle
         parent::build($container);
         $container->addCompilerPass(new FormPass());
     }
+
+    /**
+     * @return string
+     */
+    public function getParent()
+    {
+        return "SyliusAssortmentBundle";
+    }
 }

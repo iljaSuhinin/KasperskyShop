@@ -15,6 +15,9 @@ use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
  */
 class Product extends BaseProduct
 {
+    const VARIANT_PICKING_CHOICE = 0;
+    const VARIANT_PICKING_MATCH  = 1;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -39,6 +42,15 @@ class Product extends BaseProduct
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
      */
     protected $image;
+
+    /**
+     * Variant picking mode.
+     * Whether to display a choice form with all variants or match variant for
+     * given options.
+     *
+     * @ORM\Column(type="integer", name="variant_picking_mode")
+     */
+    protected $variantPickingMode = 1;
 
     public function __construct()
     {
@@ -96,6 +108,25 @@ class Product extends BaseProduct
     public function removePropertie(\Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface $propertie)
     {
         $this->properties->removeElement($propertie);
+    }
+
+    public function getVariantPickingMode()
+    {
+        return $this->variantPickingMode;
+    }
+
+    public function setVariantPickingMode($variantPickingMode)
+    {
+        if (!in_array($variantPickingMode, array(self::VARIANT_PICKING_CHOICE, self::VARIANT_PICKING_MATCH))) {
+            throw new \InvalidArgumentException('Wrong variant picking mode supplied');
+        }
+
+        $this->variantPickingMode = $variantPickingMode;
+    }
+
+    public function isVariantPickingModeChoice()
+    {
+        return self::VARIANT_PICKING_CHOICE === $this->variantPickingMode;
     }
 
     /**

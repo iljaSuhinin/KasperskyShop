@@ -1,3 +1,17 @@
 sip_assortment_variant_option:
     pattern:  /_sys/varion_option
     defaults: { _controller: SIPAssortmentBundle:VariantAdmin:variantOption }
+
+sip_assortment_product_list:
+    pattern: /product
+    defaults:
+        _controller: sylius.controller.product:indexAction
+        _template: SIPAssortmentBundle:Product:list.html.twig
+        _paginate: 9
+
+sip_assortment_product_show:
+    pattern: /product/{slug}
+    defaults:
+        _controller: sylius.controller.product:showAction
+        _template: SIPAssortmentBundle:Product:show.html.twig
+        _identifier: slug

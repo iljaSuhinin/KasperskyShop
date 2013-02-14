@@ -6,6 +6,7 @@ sylius_cart:
             model: SIP\ResourceBundle\Entity\Cart
         item:
             model: SIP\ResourceBundle\Entity\CartItem
+            form: SIP\ResourceBundle\Form\Type\CartItemType
 
 sylius_assortment:
     driver: doctrine/orm

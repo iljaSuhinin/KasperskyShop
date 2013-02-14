@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use SIP\ResourceBundle\Admin\ContainerAwareAdmin;
+use SIP\AssortmentBundle\Entity\Product;
 
 class ProductAdmin extends ContainerAwareAdmin
 {
@@ -65,6 +66,9 @@ class ProductAdmin extends ContainerAwareAdmin
                 ->add('name')
                 ->add('slug')
                 ->add('description')
+                ->add('variantPickingMode', 'genemu_jqueryselect2_choice',
+                    array('choices' => array(Product::VARIANT_PICKING_CHOICE => 'VARIANT_PICKING_CHOICE',
+                                             Product::VARIANT_PICKING_MATCH => 'VARIANT_PICKING_MATCH')))
                 ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'products')))
                 ->add('properties', 'sonata_type_collection',
                     array('cascade_validation' => true, 'required' => false, 'by_reference' => false),

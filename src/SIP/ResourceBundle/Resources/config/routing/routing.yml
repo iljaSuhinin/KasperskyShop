@@ -1,7 +1,3 @@
 sip_resource_core_main:
     pattern: /
     defaults: { _controller: SIPResourceBundle:Main:index }
-
-sip_resources_core_product:
-    resource: @SIPResourceBundle/Resources/config/routing/product.yml
-    prefix: /products

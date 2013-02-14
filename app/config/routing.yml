@@ -31,10 +31,10 @@ media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
 
-SIPTextBundle:
-    resource: '@SIPTextBundle/Resources/config/routing.yml'
-    prefix:   /
-
 SIPAssortmentBundle:
     resource: '@SIPAssortmentBundle/Resources/config/routing/routing.yml'
+    prefix:   /
+
+SIPTextBundle:
+    resource: '@SIPTextBundle/Resources/config/routing.yml'
     prefix:   /

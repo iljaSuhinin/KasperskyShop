@@ -1,11 +1,11 @@
 <div class="span4 well well-small">
-    <a href="{{ path('sip_resource_product_show', {'slug': product.slug})}}" class="thumbnail" style="width: 265px; height: 150px;">
+    <a href="{{ path('sip_assortment_product_show', {'slug': product.slug})}}" class="thumbnail" style="width: 265px; height: 150px;">
         {% media product.image, 'small' %}
     </a>
     <hr />
 
         <h4>
-            <a href="{{ path('sip_resource_product_show', {'slug': product.slug})}}">
+            <a href="{{ path('sip_assortment_product_show', {'slug': product.slug})}}">
                 {{ product.name|slice(0, 20) }}...
             </a>
         </h4>
@@ -15,5 +15,5 @@
         {% endif %}
 
     <p>{{ product.description|slice(0, 50) }}...</p>
-    <p><a href="{{ path('sip_resource_product_show', {'slug': product.slug})}}" class="btn pull-right">Read more</a>
+    <p><a href="{{ path('sip_assortment_product_show', {'slug': product.slug})}}" class="btn pull-right">Read more</a>
 </div>
