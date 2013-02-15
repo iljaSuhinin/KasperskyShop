@@ -25,6 +25,8 @@ security:
             pattern:            /admin(.*)
             context:            user
             switch_user:        true
+            remember_me:
+                lifetime: 2596000 # 30 days in seconds
             form_login:
                 login_path:             /admin/login
                 check_path:             /admin/login_check
