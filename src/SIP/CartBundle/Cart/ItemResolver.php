@@ -2,7 +2,7 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\ResourceBundle\Cart;
+namespace SIP\CartBundle\Cart;
 
 use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;

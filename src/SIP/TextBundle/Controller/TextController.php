@@ -15,14 +15,18 @@ class TextController extends Controller
      */
     public function indexAction($slug)
     {
-        $entity = $this->getDoctrine()
-                       ->getRepository($this->container->getParameter('sip.text.model.class'))
-                       ->findOneBy(array('slug' => $slug, 'disabled' => false));
-
-        if (!$entity) {
+        if (!$entity = $this->getTextManager()->getText($slug)) {
             throw $this->createNotFoundException("Unable to find entity");
         }
 
         return $this->render('SIPTextBundle:Text:index.html.twig', array('entity' => $entity));
+    }
+
+    /**
+     * @return \SIP\TextBundle\Manager\TextManager
+     */
+    public function getTextManager()
+    {
+        return $this->container->get('sip.content.text.manager');
     }
 }

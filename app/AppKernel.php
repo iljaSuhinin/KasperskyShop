@@ -25,11 +25,12 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
@@ -49,6 +50,7 @@ class AppKernel extends Kernel
             new SIP\ResourceBundle\SIPResourceBundle(),
             new SIP\TextBundle\SIPTextBundle(),
             new SIP\AssortmentBundle\SIPAssortmentBundle(),
+            new SIP\CartBundle\SIPCartBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

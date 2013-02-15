@@ -1,5 +1,5 @@
 parameters:
-    sip.cart_item_resolver.class: SIP\ResourceBundle\Cart\ItemResolver
+    sip.cart_item_resolver.class: SIP\CartBundle\Cart\ItemResolver
 
 services:
     sip.cart_item_resolver:

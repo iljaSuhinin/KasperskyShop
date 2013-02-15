@@ -1,0 +1,8 @@
+parameters:
+    sip.content.text.manager.class: SIP\TextBundle\Manager\TextManager
+
+services:
+    sip.content.text.manager:
+        class: %sip.content.text.manager.class%
+        arguments: [@doctrine.orm.entity_manager, %sip.text.model.class%]
+

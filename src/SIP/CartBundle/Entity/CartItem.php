@@ -2,7 +2,7 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\ResourceBundle\Entity;
+namespace SIP\CartBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

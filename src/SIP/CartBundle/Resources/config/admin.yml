@@ -1,0 +1,16 @@
+parameters:
+    sip.content.cart.admin.class: SIP\CartBundle\Admin\CartAdmin
+    sip.content.cart_item.admin.class: SIP\CartBundle\Admin\CartItemAdmin
+
+services:
+    sip.content.cart.admin:
+        class: %sip.content.cart.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Cart, label: Cart }
+        arguments: [null, %sylius_cart.model.cart.class%, SonataAdminBundle:CRUD]
+
+    sip.content.cart_item.admin:
+        class: %sip.content.cart_item.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Cart, label: CartItem }
+        arguments: [null, %sylius_cart.model.item.class%, SonataAdminBundle:CRUD]

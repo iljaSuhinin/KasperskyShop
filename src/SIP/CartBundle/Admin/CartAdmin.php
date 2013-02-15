@@ -2,7 +2,7 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\ResourceBundle\Admin;
+namespace SIP\CartBundle\Admin;
 
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;

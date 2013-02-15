@@ -21,26 +21,33 @@
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
 
+    {% stylesheets output='assets/compiled/frontend.less' '@SIPResourceBundle/Resources/assets/css/main.less'%}
+        <link rel="stylesheet/less" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
     {% endblock %}
 </head>
 <body>
 <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container-fluid">
-
+            <a class="brand" href="{{ path('sip_resource_core_main') }}">Main page</a>
+            {{ knp_menu_render('SIPResourceBundle:Builder:mainMenu', {'template': 'SIPResourceBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}
         </div>
     </div>
 </div>
 <div class="container-fluid">
     <div class="row-fluid">
         <div id="sidebar" class="span2">
-            {% block sidebar %}
+            {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+            {% for name, value in app.session.flashes if name in ['success', 'error'] %}
+                {{ flash(name, value|trans, true) }}
+            {% endfor %}
 
+            {% block sidebar %}
+                {% include 'SIPResourceBundle::sidebar.html.twig' %}
             {% endblock %}
             <hr />
-            <footer>
-                <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011 - {{ 'now'|date('Y') }}.</p>
-            </footer>
         </div>
         <div id="content" class="span10 boxy">
             {% block content %}

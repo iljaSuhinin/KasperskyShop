@@ -1,6 +1,6 @@
 <?php
 
-namespace SIP\ResourceBundle\Form\Type;
+namespace SIP\CartBundle\Form\Type;
 
 use Sylius\Bundle\CartBundle\Form\Type\CartItemType as BaseCartItemType;
 use Symfony\Component\Form\FormBuilderInterface;
