@@ -11,6 +11,7 @@ use Sylius\Bundle\CartBundle\Entity\Cart as BaseCart;
 /**
  * @ORM\Entity
  * @ORM\Table(name="sip_content_cart")
+ * @ORM\HasLifecycleCallbacks
  */
 class Cart extends BaseCart
 {
@@ -22,7 +23,7 @@ class Cart extends BaseCart
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", cascade={"persist", "remove"})
      */
     protected $items;
 
@@ -34,6 +35,14 @@ class Cart extends BaseCart
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate()
+    {
+        $this->incrementExpiresAt();
     }
 
     /**

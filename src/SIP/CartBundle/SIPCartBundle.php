@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * (c) Suhinin Ilja <iljasuhinin@gmail.com>
+ */
 namespace SIP\CartBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
