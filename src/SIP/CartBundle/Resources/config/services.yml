@@ -1,8 +1,8 @@
 parameters:
-    sip.cart_item_resolver.class: SIP\CartBundle\Cart\ItemResolver
+    sip.cart_item_resolver.class: SIP\CartBundle\Resolver\ItemResolver
 
 services:
     sip.cart_item_resolver:
         class: %sip.cart_item_resolver.class%
-        arguments: [@doctrine.orm.entity_manager]
+        arguments: [@sylius.repository.product, @form.factory]
 

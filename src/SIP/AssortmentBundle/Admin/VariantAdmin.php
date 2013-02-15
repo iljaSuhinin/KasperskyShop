@@ -41,7 +41,7 @@ class VariantAdmin extends ContainerAwareAdmin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('price')
+            ->add('price', 'money')
             ->add('master')
             ->add('presentation')
             ->add('createdAt')
@@ -64,7 +64,7 @@ class VariantAdmin extends ContainerAwareAdmin
         $formMapper
             ->with('General')
                 ->add('presentation')
-                ->add('price')
+                ->add('price', 'money')
                 ->add('product', 'genemu_jqueryselect2_entity',
                     array('class' => $this->container->getParameter('sylius.model.product.class'),
                           'property' => 'name',

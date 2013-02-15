@@ -22,7 +22,7 @@ class Cart extends BaseCart
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", orphanRemoval=true, cascade={"persist"})
      */
     protected $items;
 
@@ -34,5 +34,13 @@ class Cart extends BaseCart
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string)$this->getTotal() . '-Expired at:' . $this->getExpiresAt()->format('Y.d.m h:i');
     }
 }

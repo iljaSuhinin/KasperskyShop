@@ -32,8 +32,8 @@
         <tr>
             <td>{{ loop.index }}</td>
             <td>
-                <a href="{{ path('sylius_sandbox_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
-                    {% media product.image, 'big' %}
+                <a href="{{ path('sip_assortment_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
+                    {% media item.variant.product.image, 'big' %}
                 </a>
             </td>
             <td>
@@ -70,7 +70,7 @@
 <div class="well">
     <button type="submit" class="btn btn-primary btn-large"><i class="icon-save icon-white"></i> save</button>
     <div class="pull-right">
-    <a href="{{ path('sylius_sandbox_checkout_start') }}" class="btn btn-success btn-large"><i class="icon-shopping-cart"></i> checkout</a>
+    <a href="{#{{ path('sylius_sandbox_checkout_start') }}#}" class="btn btn-success btn-large"><i class="icon-shopping-cart"></i> checkout</a>
     <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large"><i class="icon-remove"></i> clear cart</a>
     </div>
 </div>
