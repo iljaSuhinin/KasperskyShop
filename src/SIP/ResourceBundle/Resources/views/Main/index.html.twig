@@ -60,7 +60,7 @@
                 </a>
             </h4>
 
-            <p>{{ product.description|slice(0, 50) }}...</p>
+            <p>{{ product.description|slice(0, 50)|raw }}...</p>
             <p><a href="{{ path('sip_assortment_product_show', {'slug': product.slug})}}" class="btn pull-right">Read more</a>
         </div>
 
