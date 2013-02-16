@@ -41,6 +41,21 @@ class Builder extends ContainerAware
     }
 
     /**
+     * @param \Knp\Menu\FactoryInterface $factory
+     * @return \Knp\Menu\ItemInterface
+     */
+    public function sidebarMenu(FactoryInterface $factory)
+    {
+        $menu = $factory->createItem('root', array(
+            'childrenAttributes' => array(
+                'class' => 'nav'
+            )
+        ));
+
+        return $menu;
+    }
+
+    /**
      * @return \SIP\TextBundle\Manager\TextManager
      */
     public function getTextManager()

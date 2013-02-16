@@ -1,5 +1,6 @@
 parameters:
     sip.content.log.admin.class: SIP\ResourceBundle\Admin\ContentLogAdmin
+    sip.content.categoty.admin.class: SIP\ResourceBundle\Admin\CategoryAdmin
 
 services:
     sip.content.log.admin:
@@ -7,3 +8,9 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: Log, label: ContentLog }
         arguments: [null, SIP\ResourceBundle\Entity\ContentLog, SonataAdminBundle:CRUD, @sonata.admin.pool]
+
+    sip.content.categoty.admin:
+        class: %sip.content.categoty.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Content, label: Category }
+        arguments: [null, SIP\ResourceBundle\Entity\Category, SonataAdminBundle:CRUD]
