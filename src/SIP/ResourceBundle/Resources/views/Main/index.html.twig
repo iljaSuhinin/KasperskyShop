@@ -2,10 +2,75 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Sylius <small>Recent products</small></h1>
+    <h1>Offers <small>Recent offers</small></h1>
 </div>
 
-<div class="alert alert-info">
+<hr />
+
+<div class="product-grid">
+    <div class="fluid-row" style="overflow: hidden;">
+        {% for news in recentNews %}
+
+        <div class="span3 well well-small">
+            <a href="{{ path('sip_news_show', {'slug': news.slug})}}" class="thumbnail" style="width: 130px; height: 75px;">
+                {% media news.image, 'normal' %}
+            </a>
+            <hr />
+
+            <h4>
+                <a href="{{ path('sip_news_show', {'slug': news.slug})}}">
+                    {{ news.title|slice(0, 20) }}...
+                </a>
+            </h4>
+
+            <p>{{ news.description|slice(0, 50)|raw }}...</p>
+            <p><a href="{{ path('sip_news_show', {'slug': news.slug})}}" class="btn pull-right">Read more</a>
+        </div>
+
+        {% if loop.index % 4 == 0 %}
+    </div>
+    <div class="fluid-row">
+        {% endif %}
+
+        {% endfor %}
+    </div>
+</div>
+
+<hr />
+
+<div class="page-header">
+    <h1>Antivirus <small>Recent products</small></h1>
+</div>
+
+<hr />
+
+<div class="product-grid">
+    <div class="fluid-row" style="overflow: hidden;">
+        {% for product in recentProducts %}
+
+        <div class="span3 well well-small">
+            <a href="{{ path('sip_assortment_product_show', {'slug': product.slug})}}" class="thumbnail" style="width: 130px; height: 75px;">
+                {% media product.preview, 'normal' %}
+            </a>
+            <hr />
+
+            <h4>
+                <a href="{{ path('sip_assortment_product_show', {'slug': product.slug})}}">
+                    {{ product.name|slice(0, 20) }}...
+                </a>
+            </h4>
+
+            <p>{{ product.description|slice(0, 50) }}...</p>
+            <p><a href="{{ path('sip_assortment_product_show', {'slug': product.slug})}}" class="btn pull-right">Read more</a>
+        </div>
+
+        {% if loop.index % 4 == 0 %}
+    </div>
+    <div class="fluid-row">
+        {% endif %}
+
+        {% endfor %}
+    </div>
 </div>
 
 <hr />

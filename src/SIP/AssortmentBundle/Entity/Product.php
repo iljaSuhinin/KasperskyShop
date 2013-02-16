@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
 
 /**
- * @ORM\Entity(repositoryClass="SIP\AssortmentBundle\Repository\ProductRepository")
+ * @ORM\Entity
  * @ORM\Table(name="content_product")
  * @ORM\HasLifecycleCallbacks
  */

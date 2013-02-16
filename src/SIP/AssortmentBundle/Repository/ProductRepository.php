@@ -28,9 +28,9 @@ class ProductRepository extends CustomizableProductRepository
     }
 
     /**
-     * @return \Doctrine\ORM\QueryBuilder
+     * @return \SIP\AssortmentBundle\Entity\Product[]
      */
-    public function getProductsQueryBuilder()
+    public function getProducts()
     {
         $queryBuilder = $this->getCollectionQueryBuilder();
         $queryBuilder->innerJoin("{$this->getAlias()}.category", 'c')
@@ -38,6 +38,6 @@ class ProductRepository extends CustomizableProductRepository
 
         $this->applyCriteria($queryBuilder, array('disabled' => 0));
 
-        return $queryBuilder;
+        return $queryBuilder->getQuery()->execute();
     }
 }

@@ -9,7 +9,3 @@ services:
             - { name: form.type, alias: option_value }
         calls:
             - [ setContainer, [ @service_container ] ]
-
-    sip_assortment.product.manager:
-        class: %sip_assortment.product.manager.class%
-        arguments: [@doctrine.orm.entity_manager, %sylius.model.product.class%]

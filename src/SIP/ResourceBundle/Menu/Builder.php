@@ -63,7 +63,7 @@ class Builder extends ContainerAware
 
         $currentCategory = null;
         $child = null;
-        foreach ($this->getProductManager()->getProducts() as $product) {
+        foreach ($this->getProductRepository()->getProducts() as $product) {
             if ($currentCategory != $product->getCategory()) {
                 $currentCategory = $product->getCategory();
                 $child = $menu->addChild($currentCategory->getTitle(), $childOptions);
@@ -90,10 +90,10 @@ class Builder extends ContainerAware
     }
 
     /**
-     * @return \SIP\AssortmentBundle\Manager\ProductManager
+     * @return \SIP\AssortmentBundle\Repository\ProductRepository
      */
-    public function getProductManager()
+    private function getProductRepository()
     {
-        return $this->container->get('sip_assortment.product.manager');
+        return $this->container->get('sylius.repository.product');
     }
 }

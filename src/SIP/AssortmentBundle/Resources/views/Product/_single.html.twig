@@ -10,7 +10,7 @@
         {% endif %}
         <h3>{{ product.name }}</h3>
         <p>
-            {{ product.description }}
+            {{ product.description|raw }}
         </p>
         {% if not product.hasOptions %}
             <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix">
