@@ -4,3 +4,7 @@
     <hr />
     <a href="{{ path('sylius_cart_summary') }}" class="btn btn-primary">show cart <i class="icon-shopping-cart icon-white"></i></a>
 </div>
+
+<div class="sidebar-nav well menu">
+    {{ knp_menu_render('SIPResourceBundle:Builder:sidebarMenu', {'template': 'SIPResourceBundle:Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+</div>

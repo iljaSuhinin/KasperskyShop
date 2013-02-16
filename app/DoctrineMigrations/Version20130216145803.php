@@ -8,7 +8,7 @@ use Doctrine\DBAL\Migrations\AbstractMigration,
 /**
  * Auto-generated Migration: Please modify to your need!
  */
-class Version20130216143131 extends AbstractMigration
+class Version20130216145803 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -22,6 +22,7 @@ class Version20130216143131 extends AbstractMigration
         $this->addSql("ALTER TABLE content_product ADD onMain BOOLEAN DEFAULT NULL");
         $this->addSql("ALTER TABLE content_product ADD sku INT NOT NULL");
         $this->addSql("ALTER TABLE content_product ADD view INT NOT NULL");
+        $this->addSql("ALTER TABLE content_product ADD preview_id INT DEFAULT NULL");
         $this->addSql("ALTER TABLE content_product RENAME COLUMN image_id TO fullview_id");
         $this->addSql("ALTER TABLE content_product DROP CONSTRAINT fk_c42dd1e3da5256d");
         $this->addSql("DROP INDEX idx_c42dd1e3da5256d");

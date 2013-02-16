@@ -47,7 +47,7 @@ class ProductAdmin extends ContainerAwareAdmin
             ->add('category')
             ->add('createdAt')
             ->add('updatedAt')
-            ->add('image', 'sonata_type_model', array('template'=>'SIPResourceBundle:Admin:list_image.html.twig'))
+            ->add('preview', 'sonata_type_model', array('template'=>'SIPResourceBundle:Admin:list_image.html.twig'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                 'view' => array(),
@@ -72,7 +72,7 @@ class ProductAdmin extends ContainerAwareAdmin
                     array('class' => 'SIP\ResourceBundle\Entity\Category', 'property' => 'title'))
                 ->add('disabled')
                 ->add('onMain')
-                ->add('variantPickingMode', 'genemu_jqueryselect2_choice',
+                ->add('view', 'genemu_jqueryselect2_choice',
                     array('choices' => array(Product::PRODUCT_VIEW_HOME => 'PRODUCT_VIEW_HOME',
                                              Product::PRODUCT_VIEW_OFFICE => 'PRODUCT_VIEW_OFFICE')))
             ->end()
@@ -83,8 +83,8 @@ class ProductAdmin extends ContainerAwareAdmin
                 ->add('information')
             ->end()
             ->with('Media')
-                ->add('preview', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'products_preview')))
-                ->add('fullview', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'products_fullview')))
+                ->add('preview', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'preview')))
+                ->add('fullview', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'fullview')))
             ->end()
             ->with('Variants and Options')
                 ->add('variantPickingMode', 'genemu_jqueryselect2_choice',

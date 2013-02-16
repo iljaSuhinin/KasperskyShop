@@ -1,5 +1,6 @@
 parameters:
     sip_assortment.form.type.option_value.class: SIP\AssortmentBundle\Form\Type\OptionValueType
+    sip_assortment.product.manager.class: SIP\AssortmentBundle\Manager\ProductManager
 
 services:
     sip_assortment.form.type.option_value:
@@ -8,3 +9,7 @@ services:
             - { name: form.type, alias: option_value }
         calls:
             - [ setContainer, [ @service_container ] ]
+
+    sip_assortment.product.manager:
+        class: %sip_assortment.product.manager.class%
+        arguments: [@doctrine.orm.entity_manager, %sylius.model.product.class%]

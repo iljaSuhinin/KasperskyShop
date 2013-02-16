@@ -12,6 +12,15 @@ use Sonata\AdminBundle\Admin\Admin;
 class CategoryAdmin extends Admin
 {
     /**
+     * @var array
+     */
+    protected $datagridValues = array(
+        '_page' => 1,
+        '_sort_by' => 'position',
+        '_sort_order' => 'ASC',
+    );
+
+    /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
      *
      * @return void
@@ -59,6 +68,7 @@ class CategoryAdmin extends Admin
                 ->add('slug')
                 ->add('description')
                 ->add('disabled')
+                ->add('position')
             ->end();
     }
 }

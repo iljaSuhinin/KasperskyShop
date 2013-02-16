@@ -8,6 +8,8 @@ sip_assortment_product_list:
         _controller: sylius.controller.product:indexAction
         _template: SIPAssortmentBundle:Product:list.html.twig
         _paginate: 9
+        _criteria:
+            disabled: 0
 
 sip_assortment_product_show:
     pattern: /product/{slug}
@@ -15,3 +17,12 @@ sip_assortment_product_show:
         _controller: sylius.controller.product:showAction
         _template: SIPAssortmentBundle:Product:show.html.twig
         _identifier: slug
+
+sip_assortment_product_list_by_category:
+    pattern: /product/category/{slug}
+    defaults:
+        _controller: sylius.controller.product:listByCategoryAction
+        _template: SIPAssortmentBundle:Product:list.html.twig
+        _paginate: 9
+        _criteria:
+            disabled: 0

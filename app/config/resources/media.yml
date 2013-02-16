@@ -13,7 +13,7 @@ sonata_media:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
 
-        products_fullview:
+        fullview:
             providers:
                 - sonata.media.provider.image
 
@@ -21,7 +21,7 @@ sonata_media:
                 admin: { width: 75 , height: 60, , quality: 70}
                 normal: { width: 200 , height: 300, quality: 70}
 
-        products_preview:
+        preview:
             providers:
                 - sonata.media.provider.image
 

@@ -46,6 +46,12 @@ class Category
     protected $disabled;
 
     /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(type="integer")
+     */
+    protected $position;
+
+    /**
      * Get id
      *
      * @return integer $id
@@ -145,6 +151,28 @@ class Category
     public function getDisabled()
     {
         return $this->disabled;
+    }
+
+    /**
+     * Set position
+     *
+     * @param int $position
+     * @return Category
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 
     /**

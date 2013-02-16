@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SIP\AssortmentBundle\Repository\ProductRepository")
  * @ORM\Table(name="content_product")
  * @ORM\HasLifecycleCallbacks
  */
@@ -42,13 +42,13 @@ class Product extends BaseProduct
 
     /**
      * @ORM\ManyToOne(targetEntity="SIP\ResourceBundle\Entity\Media\Media")
-     * @ORM\JoinColumn(name="preview_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="preview_id", referencedColumnName="id", nullable=true)
      */
     protected $preview;
 
     /**
      * @ORM\ManyToOne(targetEntity="SIP\ResourceBundle\Entity\Media\Media")
-     * @ORM\JoinColumn(name="fullview_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="fullview_id", referencedColumnName="id", nullable=true)
      */
     protected $fullview;
 

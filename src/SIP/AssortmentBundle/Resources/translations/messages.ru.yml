@@ -1,3 +1,19 @@
 VARIANT_PICKING_CHOICE: Выбор из вариантов
 VARIANT_PICKING_MATCH: Выбор по значениям опций
 Variant Picking Mode: Выбор вариантов
+
+View: Тип вывода
+On Main: Выводить на главной
+PRODUCT_VIEW_HOME: Для дома
+PRODUCT_VIEW_OFFICE: Для оффиса
+
+Information: Описание товара
+Links: Ссылки
+Brief: Краткое описание товара
+
+Media: Изображения
+Preview: Превью товара
+Fullview: Изображение товара
+
+Variants and Options: Варианты и опции
+Sku: Артикул

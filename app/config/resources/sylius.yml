@@ -14,6 +14,7 @@ sylius_assortment:
         product:
             model: SIP\AssortmentBundle\Entity\Product
             controller: SIP\AssortmentBundle\Controller\ProductController
+            repository: SIP\AssortmentBundle\Repository\ProductRepository
         variant:
             model: SIP\AssortmentBundle\Entity\Variant
         option:

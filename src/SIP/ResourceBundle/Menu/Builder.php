@@ -52,6 +52,30 @@ class Builder extends ContainerAware
             )
         ));
 
+        $menu->setCurrent($this->container->get('request')->getRequestUri());
+
+        $childOptions = array(
+            'childrenAttributes' => array('class' => 'nav nav-list'),
+            'labelAttributes'    => array('class' => 'nav-header')
+        );
+
+        $currentCategory = null;
+        $child = null;
+        foreach ($this->getProductManager()->getProducts() as $product) {
+            if ($currentCategory != $product->getCategory()) {
+                $currentCategory = $product->getCategory();
+                $child = $menu->addChild($currentCategory->getTitle(), $childOptions);
+            }
+
+            if ($child) {
+                $child->addChild($product->getName(), array(
+                    'route'           => 'sip_assortment_product_show',
+                    'routeParameters' => array('slug' => $product->getSlug()),
+                    'labelAttributes' => array('icon' => ' icon-caret-right')
+                ));
+            }
+        }
+
         return $menu;
     }
 
@@ -61,5 +85,13 @@ class Builder extends ContainerAware
     public function getTextManager()
     {
         return $this->container->get('sip.content.text.manager');
+    }
+
+    /**
+     * @return \SIP\AssortmentBundle\Manager\ProductManager
+     */
+    public function getProductManager()
+    {
+        return $this->container->get('sip_assortment.product.manager');
     }
 }
