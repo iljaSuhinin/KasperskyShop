@@ -47,7 +47,7 @@ class ProductAdmin extends ContainerAwareAdmin
             ->add('category')
             ->add('createdAt')
             ->add('updatedAt')
-            ->add('preview', 'sonata_type_model', array('template'=>'SIPResourceBundle:Admin:list_image.html.twig'))
+            ->add('preview', 'sonata_type_model', array('template'=>'SIPAssortmentBundle:Admin:list_image.html.twig'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                 'view' => array(),

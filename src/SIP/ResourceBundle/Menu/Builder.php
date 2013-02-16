@@ -25,6 +25,8 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
         );
 
+        $menu->addChild('Offers', array('route' => 'sip_news_list'));
+
         $child = $menu->addChild('Text pages', $childOptions);
 
         foreach ($this->getTextManager()->getTexts() as $textPage) {

@@ -29,6 +29,14 @@ sonata_media:
                 admin: { width: 75 , height: 60, , quality: 70}
                 normal: { width: 160 , height: 248, quality: 70}
 
+        news:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                admin: { width: 75 , height: 60, , quality: 70}
+                normal: { width: 160 , height: 248, quality: 70}
+
     cdn:
         server:
             path: /uploads/media # http://media.sonata-project.org/

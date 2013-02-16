@@ -80,3 +80,10 @@ stof_doctrine_extensions:
 
 genemu_form:
     select2: ~
+    date: ~
+    tinymce:
+        script_url: 'vendors/tinymce//tiny_mce.js'
+        configs:
+            plugins: inlinepopups
+            convert_urls: false
+            extended_valid_elements: "rb:cinema[*],rb:rich[*]"

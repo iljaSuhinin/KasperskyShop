@@ -38,3 +38,7 @@ SIPAssortmentBundle:
 SIPTextBundle:
     resource: '@SIPTextBundle/Resources/config/routing.yml'
     prefix:   /
+
+sip_news:
+    resource: '@SIPNewsBundle/Resources/config/routing.yml'
+    prefix:   /offers

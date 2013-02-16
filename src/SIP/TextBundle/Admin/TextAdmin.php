@@ -57,7 +57,7 @@ class TextAdmin extends Admin
             ->with('General')
                 ->add('title')
                 ->add('slug')
-                ->add('body')
+                ->add('body', 'genemu_tinymce')
                 ->add('disabled')
             ->end();
     }

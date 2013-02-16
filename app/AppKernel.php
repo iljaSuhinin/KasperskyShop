@@ -51,6 +51,7 @@ class AppKernel extends Kernel
             new SIP\TextBundle\SIPTextBundle(),
             new SIP\AssortmentBundle\SIPAssortmentBundle(),
             new SIP\CartBundle\SIPCartBundle(),
+            new SIP\NewsBundle\SIPNewsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
