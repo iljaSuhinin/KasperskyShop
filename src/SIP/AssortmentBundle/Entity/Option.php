@@ -24,7 +24,7 @@ class Option extends BaseOption
 
     /**
      * @ORM\OneToMany(targetEntity="Sylius\Bundle\AssortmentBundle\Model\Option\OptionValueInterface",
-     * mappedBy="option", orphanRemoval=true, cascade={"persist"})
+     * mappedBy="option", cascade={"persist", "remove"})
      */
     protected $values;
 

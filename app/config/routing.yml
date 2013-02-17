@@ -42,3 +42,7 @@ SIPTextBundle:
 sip_news:
     resource: '@SIPNewsBundle/Resources/config/routing.yml'
     prefix:   /offers
+
+SIPCartBundle:
+    resource: '@SIPCartBundle/Resources/config/routing/routing.yml'
+    prefix:   /cart

@@ -2,6 +2,19 @@
 
 {% set form = sylius_cart_form({'product': product}) %}
 
+{% block javascripts %}
+    {{ parent() }}
+
+    {% if product.hasVariants and product.isVariantPickingModeChoice == 0 %}
+        <script type="text/javascript">
+            var calculateUrl = '{{ path('sip_cart_item_calculate', {'id': product.id}) }}';
+        </script>
+        {% javascripts output='assets/compiled/calculate.js' '@SIPCartBundle/Resources/public/calculate.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
 <h1>
@@ -83,13 +96,16 @@
             <div class="well">
                 {{ form_widget(form.variant) }}
             </div>
+            price:<span class="label label-success"><span id="variant_price"></span> {{ currency|raw }}</span>
         {% endif %}
     {% endif %}
-    <div class="pull-right">
-    {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
-    {{ form_widget(form._token) }}
-    <input type="submit" class="btn btn-success btn-large span12" value="add to cart">
-    </div>
+    {% if product.hasVariants %}
+        <div class="pull-right">
+            {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
+            {{ form_widget(form._token) }}
+            <input type="submit" class="btn btn-success btn-large span12" value="add to cart">
+        </div>
+    {% endif %}
 </form>
 
 <hr />

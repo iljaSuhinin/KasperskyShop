@@ -1,0 +1,3 @@
+sip_cart_item_calculate:
+    pattern: /calculate
+    defaults: { _controller: sylius_cart.controller.item:calculateAction }
