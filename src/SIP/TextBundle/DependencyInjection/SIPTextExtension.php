@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * (c) Suhinin Ilja <iljasuhinin@gmail.com>
+ */
 namespace SIP\TextBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -27,5 +29,8 @@ class SIPTextExtension extends Extension
         $loader->load('services.yml');
 
         $container->setParameter('sip.text.model.class', $config['class']);
+        $container->setParameter('sip.text.controller.class', $config['controller']);
+        $container->setParameter('sip.text.repository.class', $config['repository']);
+        $container->setParameter('sip.text.admin.class', $config['admin']);
     }
 }

@@ -30,5 +30,7 @@ class SIPNewsExtension extends Extension
 
         $container->setParameter('sip.news.controller.class', $config['controller']);
         $container->setParameter('sip.news.model.class', $config['model']);
+        $container->setParameter('sip_news.repository.class', $config['repository']);
+        $container->setParameter('sip_news.admin.class', $config['admin']);
     }
 }

@@ -8,19 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="content_news")
- * @Gedmo\Loggable(logEntryClass="SIP\ResourceBundle\Entity\ContentLog")
+ * @ORM\MappedSuperclass
  */
 class News
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
     /**
      * @Gedmo\Versioned
      * @ORM\Column(type="string")
@@ -70,16 +61,6 @@ class News
      * @ORM\Column(type="boolean", nullable=true)
      */
     protected $onMain;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set title

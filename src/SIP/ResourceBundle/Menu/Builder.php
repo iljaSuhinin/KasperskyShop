@@ -29,7 +29,8 @@ class Builder extends ContainerAware
 
         $child = $menu->addChild('Text pages', $childOptions);
 
-        foreach ($this->getTextManager()->getTexts() as $textPage) {
+        $textPages = $this->getTextRepository()->findBy(array('disabled' => 0));
+        foreach ($textPages as $textPage) {
             $child->addChild($textPage->getTitle(), array(
                 'route'           => 'sip_text_item',
                 'routeParameters' => array(
@@ -82,11 +83,11 @@ class Builder extends ContainerAware
     }
 
     /**
-     * @return \SIP\TextBundle\Manager\TextManager
+     * @return \Sylius\Bundle\AssortmentBundle\Entity\CustomizableProductRepository
      */
-    public function getTextManager()
+    public function getTextRepository()
     {
-        return $this->container->get('sip.content.text.manager');
+        return $this->container->get('sip_text.repository.text');
     }
 
     /**

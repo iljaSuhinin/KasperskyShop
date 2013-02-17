@@ -1,15 +1,12 @@
 <?php
-
+/*
+ * (c) Suhinin Ilja <iljasuhinin@gmail.com>
+ */
 namespace SIP\TextBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-/**
- * This is the class that validates and merges configuration from your app/config files
- *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class}
- */
 class Configuration implements ConfigurationInterface
 {
     /**
@@ -20,8 +17,13 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('sip_text');
 
-        $rootNode->children()
-            ->scalarNode('class')->defaultValue('SIP\TextBundle\Entity\Text')->end();
+        $rootNode
+            ->children()
+                ->scalarNode('class')->defaultValue('SIP\\ResourceBundle\\Entity\\Text')->end()
+                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
+                ->scalarNode('repository')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Doctrine\\ORM\\EntityRepository')->end()
+                ->scalarNode('admin')->defaultValue('SIP\\TextBundle\\Admin\\TextAdmin')->end()
+            ->end();
 
         return $treeBuilder;
     }

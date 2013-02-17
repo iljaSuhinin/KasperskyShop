@@ -1,8 +1,21 @@
-parameters:
-    sip.content.text.manager.class: SIP\TextBundle\Manager\TextManager
-
 services:
-    sip.content.text.manager:
-        class: %sip.content.text.manager.class%
-        arguments: [@doctrine.orm.entity_manager, %sip.text.model.class%]
+    sip_text.controller.text:
+        class: %sip.text.controller.class%
+        arguments: ["sip_text", "text", "SIPTextBundle:Text"]
+        calls:
+            - [ setContainer, [ @service_container ] ]
+
+    sip_text.default_entity_manager.text:
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getClassMetadata
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        public: false
+        arguments: [%sip.text.model.class%]
+
+    sip_text.manager.text:
+        alias: doctrine.orm.entity_manager
+
+    sip_text.repository.text:
+        class: %sip.text.repository.class%
+        arguments: [ @sip_text.manager.text, @sip_text.default_entity_manager.text ]
 

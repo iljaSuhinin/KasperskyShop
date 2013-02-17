@@ -1,6 +1,3 @@
-parameters:
-    sip_news.repository.new.class: SIP\NewsBundle\Repository\NewsRepository
-
 services:
     sip_news.controller.news:
         class: %sip.news.controller.class%
@@ -8,13 +5,16 @@ services:
         calls:
             - [ setContainer, [ @service_container ] ]
 
-    sip_news.manager.news:
+    sip_news.default_entity_manager.news:
         factory_service: doctrine.orm.default_entity_manager
         factory_method: getClassMetadata
         class: Doctrine\ORM\Mapping\ClassMetadata
         public: false
         arguments: [%sip.news.model.class%]
 
+    sip_news.manager.news:
+        alias: doctrine.orm.entity_manager
+
     sip_news.repository.new:
-        class: %sip_news.repository.new.class%
-        arguments: [ @sylius_cart.manager.cart, @sip_news.manager.news ]
+        class: %sip_news.repository.class%
+        arguments: [ @sip_news.manager.news, @sip_news.default_entity_manager.news ]
