@@ -1,4 +1,4 @@
-OnlineStore
+Kaspersky online store
 ========================
 interenet shop with the use of the engine and silius soantaAdmnBundle
 
@@ -8,7 +8,7 @@ Installation:
 
 ``` bash
 $ git clone https://github.com/iljaSuhinin/OnlineStore.git
-cd OnlineStore
+$ cd OnlineStore
 ```
 2. Configure your database parameters
 
