@@ -78,6 +78,6 @@ class CartItem extends BaseCartItem
      */
     public function __toString()
     {
-        return $this->getVariant()->getPresentation();
+        return (string)$this->getVariant()->getPresentation();
     }
 }

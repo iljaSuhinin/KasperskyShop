@@ -23,6 +23,24 @@ class Text extends BaseText
     protected $id;
 
     /**
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+    /**
+     * @Gedmo\Versioned
+     * @ORM\Column(type="text")
+     */
+    protected $body;
+
+    /**
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+
+    /**
      * Get id
      *
      * @return integer

@@ -1,6 +1,0 @@
-sip_text_item:
-    pattern: /{slug}
-    defaults:
-        _controller: sip_text.controller.text:showAction
-        _template: SIPTextBundle:Text:show.html.twig
-        _identifier: slug
