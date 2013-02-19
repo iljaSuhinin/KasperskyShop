@@ -436,13 +436,13 @@
             "target-dir": "FOS/RestBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle",
-                "reference": "c61be053eca032bd19c8a6a7a60d14bbb9d4eaaf"
+                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
+                "reference": "a840cdca720b0998954176d73e619988f2c140af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/c61be053eca032bd19c8a6a7a60d14bbb9d4eaaf",
-                "reference": "c61be053eca032bd19c8a6a7a60d14bbb9d4eaaf",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/a840cdca720b0998954176d73e619988f2c140af",
+                "reference": "a840cdca720b0998954176d73e619988f2c140af",
                 "shasum": ""
             },
             "require": {
@@ -451,10 +451,10 @@
                 "symfony/framework-bundle": ">=2.0,<2.3-dev"
             },
             "conflict": {
-                "jms/serializer-bundle": "<1.0-dev"
+                "jms/serializer-bundle": "<0.11-dev"
             },
             "require-dev": {
-                "jms/serializer-bundle": "1.0.*",
+                "jms/serializer-bundle": "0.11.*",
                 "sensio/framework-extra-bundle": ">=2.1,<2.3-dev",
                 "symfony/form": ">=2.1,<2.3-dev",
                 "symfony/security": ">=2.1,<2.3-dev",
@@ -465,7 +465,7 @@
                 "sensio/framework-extra-bundle": "Add support for route annotations and the view response listener",
                 "symfony/serializer": "Add support for basic serialization capabilities, requires >=2.0,<2.3-dev"
             },
-            "time": "2013-02-02 23:16:22",
+            "time": "2013-02-16 13:08:54",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1690,25 +1690,39 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "12f71d99457b018fb80746f84514dd5b495c5789"
+                "url": "https://github.com/whiteoctober/Pagerfanta.git",
+                "reference": "878aee5e274ca75fbdf74262efd05d1207c31669"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/12f71d99457b018fb80746f84514dd5b495c5789",
-                "reference": "12f71d99457b018fb80746f84514dd5b495c5789",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/878aee5e274ca75fbdf74262efd05d1207c31669",
+                "reference": "878aee5e274ca75fbdf74262efd05d1207c31669",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "suggest": {
-                "doctrine/mongodb-odm": "2.*",
+            "require-dev": {
+                "doctrine/mongodb-odm": "*",
                 "doctrine/orm": "2.*",
-                "solarium/solarium": "2.*"
+                "mandango/mandango": "*",
+                "propel/propel1": ">=1.6,<2.0",
+                "solarium/solarium": "3.*"
             },
-            "time": "2012-08-22 21:56:31",
+            "suggest": {
+                "doctrine/mongodb-odm": "To use the DoctrineODMMongoDBAdapter.",
+                "doctrine/orm": "To use the DoctrineORMAdapter.",
+                "mandango/mandango": "To use the MandangoAdapter.",
+                "propel/propel1": "To use the PropelAdapter",
+                "solarium/solarium": "To use the SolariumAdapter."
+            },
+            "time": "2013-02-19 13:51:25",
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Pagerfanta\\": "src/"
@@ -1978,19 +1992,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SIProject/SIPNewsBundle.git",
-                "reference": "f8433c4f8c0d0b845569e4082a5278af20815da9"
+                "reference": "ca1e204acffb67c3332ef09a7c1f0741adfe93ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SIProject/SIPNewsBundle/zipball/f8433c4f8c0d0b845569e4082a5278af20815da9",
-                "reference": "f8433c4f8c0d0b845569e4082a5278af20815da9",
+                "url": "https://api.github.com/repos/SIProject/SIPNewsBundle/zipball/ca1e204acffb67c3332ef09a7c1f0741adfe93ee",
+                "reference": "ca1e204acffb67c3332ef09a7c1f0741adfe93ee",
                 "shasum": ""
             },
             "require": {
                 "genemu/form-bundle": "2.1.*",
-                "sonata-project/admin-bundle": "master-dev"
+                "sonata-project/admin-bundle": "master-dev",
+                "sylius/resource-bundle": "0.1.*"
             },
-            "time": "2013-02-19 18:44:39",
+            "time": "2013-02-19 19:03:59",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -2007,19 +2022,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SIProject/SIPTextBundle.git",
-                "reference": "2170839e301e73c551527080f596316e71d24bad"
+                "reference": "5e4d76becfb40ff7acc1be8c1201fc599f9cc8cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SIProject/SIPTextBundle/zipball/2170839e301e73c551527080f596316e71d24bad",
-                "reference": "2170839e301e73c551527080f596316e71d24bad",
+                "url": "https://api.github.com/repos/SIProject/SIPTextBundle/zipball/5e4d76becfb40ff7acc1be8c1201fc599f9cc8cf",
+                "reference": "5e4d76becfb40ff7acc1be8c1201fc599f9cc8cf",
                 "shasum": ""
             },
             "require": {
                 "genemu/form-bundle": "2.1.*",
-                "sonata-project/admin-bundle": "master-dev"
+                "sonata-project/admin-bundle": "master-dev",
+                "sylius/resource-bundle": "0.1.*"
             },
-            "time": "2013-02-19 18:42:33",
+            "time": "2013-02-19 18:55:01",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -2946,12 +2962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "4a0c8f7e47624d5637009a6953b2125dc19680c0"
+                "reference": "594ffc7a2e64316dd2961e6eda6e594f55972585"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/4a0c8f7e47624d5637009a6953b2125dc19680c0",
-                "reference": "4a0c8f7e47624d5637009a6953b2125dc19680c0",
+                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/594ffc7a2e64316dd2961e6eda6e594f55972585",
+                "reference": "594ffc7a2e64316dd2961e6eda6e594f55972585",
                 "shasum": ""
             },
             "require": {
@@ -2973,7 +2989,7 @@
                 "doctrine/orm": "~2.3",
                 "fsc/hateoas-bundle": "0.3.x-dev"
             },
-            "time": "2013-01-31 16:19:42",
+            "time": "2013-02-18 11:40:58",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3375,21 +3391,26 @@
             "target-dir": "WhiteOctober/PagerfantaBundle",
             "source": {
                 "type": "git",
-                "url": "git://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "38e317a3ecd5a68e2322024ea8fe57632d4ddd68"
+                "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
+                "reference": "f664b66bc9351c6dd24026b3cf4c897705e51b26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/38e317a3ecd5a68e2322024ea8fe57632d4ddd68",
-                "reference": "38e317a3ecd5a68e2322024ea8fe57632d4ddd68",
+                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/f664b66bc9351c6dd24026b3cf4c897705e51b26",
+                "reference": "f664b66bc9351c6dd24026b3cf4c897705e51b26",
                 "shasum": ""
             },
             "require": {
-                "pagerfanta/pagerfanta": "dev-master",
-                "symfony/framework-bundle": "2.*"
+                "pagerfanta/pagerfanta": "1.0.*",
+                "symfony/framework-bundle": ">=2.1,<3.0"
             },
-            "time": "2012-07-24 12:48:41",
+            "time": "2013-02-18 10:43:20",
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "WhiteOctober\\PagerfantaBundle": ""
