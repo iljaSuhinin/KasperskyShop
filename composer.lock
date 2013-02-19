@@ -1,5 +1,5 @@
 {
-    "hash": "7e50725309506ed10763559521af54d5",
+    "hash": "90233c17e23bf331f9c71fa1ff67efa4",
     "packages": [
         {
             "name": "doctrine/common",
@@ -1972,25 +1972,54 @@
             "description": "This bundle generates code for you"
         },
         {
-            "name": "sip/text-bundle",
+            "name": "sip/news-bundle",
             "version": "dev-master",
-            "target-dir": "SIP/TextBundle",
+            "target-dir": "SIP/NewsBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/SIProject/SIPTextBundle.git",
-                "reference": "2e0558c8d8062e8790a8be11bc826241fee5ce6a"
+                "url": "https://github.com/SIProject/SIPNewsBundle.git",
+                "reference": "f8433c4f8c0d0b845569e4082a5278af20815da9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SIProject/SIPTextBundle/zipball/2e0558c8d8062e8790a8be11bc826241fee5ce6a",
-                "reference": "2e0558c8d8062e8790a8be11bc826241fee5ce6a",
+                "url": "https://api.github.com/repos/SIProject/SIPNewsBundle/zipball/f8433c4f8c0d0b845569e4082a5278af20815da9",
+                "reference": "f8433c4f8c0d0b845569e4082a5278af20815da9",
                 "shasum": ""
             },
             "require": {
                 "genemu/form-bundle": "2.1.*",
                 "sonata-project/admin-bundle": "master-dev"
             },
-            "time": "2013-02-18 20:29:43",
+            "time": "2013-02-19 18:44:39",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "SIP\\NewsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Simple news bundle with sonata backend"
+        },
+        {
+            "name": "sip/text-bundle",
+            "version": "dev-master",
+            "target-dir": "SIP/TextBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SIProject/SIPTextBundle.git",
+                "reference": "2170839e301e73c551527080f596316e71d24bad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SIProject/SIPTextBundle/zipball/2170839e301e73c551527080f596316e71d24bad",
+                "reference": "2170839e301e73c551527080f596316e71d24bad",
+                "shasum": ""
+            },
+            "require": {
+                "genemu/form-bundle": "2.1.*",
+                "sonata-project/admin-bundle": "master-dev"
+            },
+            "time": "2013-02-19 18:42:33",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -2007,12 +2036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "88039b4cbd795aa7b3eda2399e8f2e9aa4e56b7d"
+                "reference": "0269691d61764798537a2fd3b13bfafbfb387eef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/88039b4cbd795aa7b3eda2399e8f2e9aa4e56b7d",
-                "reference": "88039b4cbd795aa7b3eda2399e8f2e9aa4e56b7d",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/0269691d61764798537a2fd3b13bfafbfb387eef",
+                "reference": "0269691d61764798537a2fd3b13bfafbfb387eef",
                 "shasum": ""
             },
             "require": {
@@ -2038,7 +2067,7 @@
                 "sonata-project/doctrine-orm-admin-bundle": "dev-master",
                 "sonata-project/intl-bundle": "dev-master"
             },
-            "time": "2013-02-17 23:33:34",
+            "time": "2013-02-19 13:16:16",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -3398,6 +3427,7 @@
         "sonata-project/doctrine-orm-admin-bundle": 20,
         "sonata-project/intl-bundle": 20,
         "sonata-project/media-bundle": 20,
-        "sip/text-bundle": 20
+        "sip/text-bundle": 20,
+        "sip/news-bundle": 20
     }
 }

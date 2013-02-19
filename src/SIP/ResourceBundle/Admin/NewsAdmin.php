@@ -2,42 +2,16 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\NewsBundle\Admin;
+namespace SIP\ResourceBundle\Admin;
 
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Admin\Admin;
 
-class NewsAdmin extends Admin
+use SIP\NewsBundle\Admin\NewsAdmin as BaseNewsAdmin;
+
+class NewsAdmin extends BaseNewsAdmin
 {
-    /**
-     * @var array
-     */
-    protected $datagridValues = array(
-        '_page' => 1,
-        '_sort_by' => 'date',
-        '_sort_order' => 'DESC',
-    );
-
-    /**
-     * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
-     *
-     * @return void
-     */
-    protected function configureShowField(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('title')
-            ->add('slug')
-            ->add('date')
-            ->add('brief')
-            ->add('description')
-            ->add('category')
-            ->add('onMain')
-        ;
-    }
-
     /**
      * @param \Sonata\AdminBundle\Datagrid\ListMapper $listMapper
      *

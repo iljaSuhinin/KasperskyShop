@@ -1,0 +1,8 @@
+sip_news:
+    model: SIP\ResourceBundle\Entity\News
+    controller: SIP\ResourceBundle\Controller\NewsController
+    repository: SIP\ResourceBundle\Repository\NewsRepository
+    admin: SIP\ResourceBundle\Admin\NewsAdmin
+
+sip_text:
+    model: SIP\ResourceBundle\Entity\Text

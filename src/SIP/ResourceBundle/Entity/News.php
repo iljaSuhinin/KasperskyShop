@@ -23,6 +23,30 @@ class News extends BaseNews
     protected $id;
 
     /**
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+    /**
+     * @Gedmo\Versioned
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $date;
+
+    /**
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SIP\ResourceBundle\Entity\Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+
+    /**
      * Get id
      *
      * @return integer
@@ -30,5 +54,28 @@ class News extends BaseNews
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \SIP\ResourceBundle\Entity\Category $category
+     * @return News
+     */
+    public function setCategory(\SIP\ResourceBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \SIP\ResourceBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

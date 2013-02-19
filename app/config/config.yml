@@ -5,6 +5,7 @@ imports:
     - { resource: resources/user.yml }
     - { resource: resources/sylius.yml }
     - { resource: resources/media.yml }
+    - { resource: resources/sip.yml }
 
 framework:
     esi:             ~
