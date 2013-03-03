@@ -23,7 +23,7 @@ class Cart extends BaseCart
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="CartItem", mappedBy="cart", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     protected $items;
 
