@@ -2,7 +2,7 @@
 /*
  * (c) Suhinin Ilja <iljasuhinin@gmail.com>
  */
-namespace SIP\CartBundle\Admin;
+namespace SIP\AssortmentBundle\Admin;
 
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Admin\Admin;
 
-class CartItemAdmin extends Admin
+class DiscountAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Datagrid\DatagridMapper $datagrid
@@ -18,7 +18,6 @@ class CartItemAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagrid)
     {
         $datagrid
-            ->add('cart')
             ->add('variant')
         ;
     }
@@ -31,11 +30,9 @@ class CartItemAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('cart')
-            ->add('quantity')
-            ->add('unitPrice')
-            ->add('total')
-        ;
+            ->add('price')
+            ->add('minQuantity')
+            ->add('maxQuantity');
     }
 
     /**
@@ -47,16 +44,15 @@ class CartItemAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('cart')
-            ->add('quantity')
-            ->add('unitPrice')
-            ->add('total')
+            ->add('price')
+            ->add('minQuantity')
+            ->add('maxQuantity')
             ->add('_action', 'actions', array(
-                'actions' => array(
+            'actions' => array(
                 'view' => array(),
                 'edit' => array(),
                 'delete' => array(),
-        )));
+            )));
     }
 
     /**
@@ -67,11 +63,8 @@ class CartItemAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
-                ->add('cart')
-                ->add('quantity')
-                ->add('unitPrice')
-                ->add('total')
-            ->end();
+            ->add('price', 'money')
+            ->add('minQuantity', null, array('attr' => array('min' => 1)))
+            ->add('maxQuantity', null, array('attr' => array('min' => 1)));
     }
 }

@@ -1,0 +1,5 @@
+services:
+    sip.assortment.validator.quantity_border:
+        class: SIP\AssortmentBundle\Validator\Constraints\QuantityBorderValidator
+        tags:
+            - { name: validator.constraint_validator, alias: sip.assortment.validator.quantity_border }

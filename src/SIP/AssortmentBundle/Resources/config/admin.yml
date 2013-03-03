@@ -5,6 +5,7 @@ parameters:
     sip.assortment.option.admin.class: SIP\AssortmentBundle\Admin\OptionAdmin
     sip.assortment.value.admin.class: SIP\AssortmentBundle\Admin\ValueAdmin
     sip.assortment.property_product.admin.class: SIP\AssortmentBundle\Admin\ProductPropertyAdmin
+    sip.assortment.discount.admin.class: SIP\AssortmentBundle\Admin\DiscountAdmin
 
 services:
     sip.assortment.product.admin:
@@ -46,3 +47,9 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: ProductProperty }
         arguments: [null, Sylius\Bundle\AssortmentBundle\Entity\Property\DefaultProductProperty, SonataAdminBundle:CRUD]
+
+    sip.assortment.discount.admin:
+        class: %sip.assortment.discount.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Assortment, label: Discount }
+        arguments: [null, SIP\AssortmentBundle\Entity\Discount, SonataAdminBundle:CRUD]
