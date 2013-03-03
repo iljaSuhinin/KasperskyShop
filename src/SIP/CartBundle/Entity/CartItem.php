@@ -62,7 +62,19 @@ class CartItem extends BaseCartItem
     {
         $this->variant = $variant;
 
-        $this->setUnitPrice($variant->getPrice());
+        $this->setUnitPrice($variant->getPrice($this->getQuantity()));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        if ($this->variant) {
+            $this->setUnitPrice($this->variant->getPrice($quantity));
+        }
     }
 
     /**
@@ -79,6 +91,6 @@ class CartItem extends BaseCartItem
     public function __toString()
     {
         return $this->getVariant()->getPresentation()?
-            (string)$this->getVariant()->getPresentation(): $this->getId();
+            (string)$this->getVariant()->getPresentation(): (string)$this->getId();
     }
 }

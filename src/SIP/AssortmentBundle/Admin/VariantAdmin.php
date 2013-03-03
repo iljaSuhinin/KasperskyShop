@@ -4,14 +4,26 @@
  */
 namespace SIP\AssortmentBundle\Admin;
 
-use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+
 use SIP\ResourceBundle\Admin\ContainerAwareAdmin;
 
 class VariantAdmin extends ContainerAwareAdmin
 {
+    /**
+     * @param \Sonata\AdminBundle\Datagrid\DatagridMapper $datagrid
+     */
+    protected function configureDatagridFilters(DatagridMapper $datagrid)
+    {
+        $datagrid
+            ->add('master')
+            ->add('product')
+        ;
+    }
+
     /**
      * @param \Sonata\AdminBundle\Show\ShowMapper $showMapper
      *
@@ -42,6 +54,7 @@ class VariantAdmin extends ContainerAwareAdmin
         $listMapper
             ->addIdentifier('id')
             ->add('price', 'money')
+            ->add('discounts')
             ->add('master')
             ->add('presentation')
             ->add('createdAt')
@@ -65,6 +78,9 @@ class VariantAdmin extends ContainerAwareAdmin
             ->with('General')
                 ->add('presentation')
                 ->add('price', 'money')
+                ->add('discounts', 'sonata_type_collection',
+                    array('cascade_validation' => true, 'required' => false, 'by_reference' => false),
+                    array('edit' => 'inline', 'inline' => 'table'))
                 ->add('product', 'genemu_jqueryselect2_entity',
                     array('class' => $this->container->getParameter('sylius.model.product.class'),
                           'property' => 'name',

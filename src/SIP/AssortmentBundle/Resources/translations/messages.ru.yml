@@ -17,3 +17,66 @@ Fullview: Изображение товара
 
 Variants and Options: Варианты и опции
 Sku: Артикул
+
+Discounts: Скидки
+discountlabel__: Скидкв
+Minquantity: мин. Колличество
+Maxquantity: макс. Колличество
+
+Properties: Характеристики
+Variants: Варианты
+Options: Опции
+
+Product: Товары
+Product List: Список товаров
+Product Edit: Редактирование товара
+Product Show: Просмотр товаров
+
+Name: Название
+Created At: Создан
+Updated At: Обновлен
+Image: Изображение
+
+Variant: Вариант
+Variant Create: Создание варианта
+Variant Edit: Редактирование варианта
+Variant List: Список вариантов
+
+Presentation: Описание
+Price: Цена
+
+Option: Опции
+Option List: Опции
+Option Create: Создание опции
+Option Edit: Редактирование опции
+Option Show: Просмотр опции
+
+Values: Значения
+
+Value: Значение
+Default Option Value List: Список зачений опции
+Default Option Value Create: Создание значения опции
+Default Option Value Edit: Редактирование значения опции
+Default Option Value Show: Просмотр значения опции
+
+Property: Характеристики
+Property List: Список характеристик
+Property Edit: Редактирование характеристики
+Property Create: Создание характеристики
+Property Show: Просмотр характеристики
+
+ProductProperty: Характеристики товара
+Default Product Property: Характеристики товара
+Default Product Property List: Список характеристик товара
+Default Product Property Edit: Редактирование характеристики товара
+Default Product Property Create: Создание характеристики товара
+Default Product Property Show: Просмотр характеристики товара
+
+Discount: Скидки
+Discount List: Список скидок
+Discount Edit: Редактирование скидки
+Discount Create: Создание скидки
+Discount Show: Просмотр скидки
+
+Min Quantity: Мин. колличество
+Max Quantity: Макс. колличество
